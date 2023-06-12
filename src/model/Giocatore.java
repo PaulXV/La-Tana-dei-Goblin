@@ -62,7 +62,6 @@ public class Giocatore
 			else
 				s += g.getNome() + ", ";
 		
-		
 		return s;
 	}
 }
