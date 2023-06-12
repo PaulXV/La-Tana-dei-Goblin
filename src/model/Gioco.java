@@ -52,14 +52,17 @@ public class Gioco
 				+"\nAnno Edizione: "+annoEdizione
 				+"\nAutori: " + stampaAutori()
 				+"\nIterazione : "+ i
-				+"\nSingle Player: "+ (solitario?"YES":"NO");
+				+"\nSingle Player: "+ (solitario? ("YES - " + numeroMinimoPly + "/"+numeroMaxPly) :"NO");
 	}
 	
 	public String stampaAutori() {
 		String s = "";
-		
+		Autore aut = autori.get(autori.size()-1);
 		for(Autore a : autori)
-			s += a.getNome()+", ";
+			if(a.getNome().equals(aut.getNome()))
+				s += a.getNome();
+			else
+				s += a.getNome() + ", ";
 		
 		return s;
 	}

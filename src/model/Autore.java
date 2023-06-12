@@ -38,7 +38,7 @@ public class Autore {
 	{
 		String s = "";
 		for(Gioco g : giochiPremiati)
-			s += g.toString() + ", ";
+			s += g.toString() + ";\n";
 		
 		return s;
 	}
