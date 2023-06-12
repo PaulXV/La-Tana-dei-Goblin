@@ -47,5 +47,22 @@ public class Giocatore
 		}else
 			return false;
 	}
-
+	
+	public String toString() {
+		String s = "Nome: "+ nome
+				+"\nNickname: "+ nickname;
+		
+		s += "\nGiochi posseduti: \n" + g.toString();
+		
+		s += "\nWish List: ";
+		Gioco gio = prossimiAcquisti.get(prossimiAcquisti.size()-1);
+		for(Gioco g : prossimiAcquisti)
+			if(g.getNome().equals(gio.getNome()))
+				s += g.getNome();
+			else
+				s += g.getNome() + ", ";
+		
+		
+		return s;
+	}
 }

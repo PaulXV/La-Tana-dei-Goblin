@@ -19,6 +19,11 @@ public class prova {
 		paolo.insertPremio(premio, b);
 		
 		System.out.println(paolo.showGiochiConPremio());
+		
+		marco.insertGame("12-06-2023", a);
+		marco.insertWantedGame(b);
+		
+		System.out.println(marco.toString());
 	}
 
 }
