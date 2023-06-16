@@ -32,33 +32,7 @@ public class MenuGui extends JPanel{
 		buttonPanel.setAlignmentX(0);
 		
 		JButton login = new JButton("  LOGIN  ");
-		//TODO: quando click su login fare schermata di login nel portale
-		//TODO: quando click su singin fare schermata di singin nel portale;
-		//gestire solo il mouse clicked - se pressed chiama mouseClicked();
-		//dopo l'accesso devi far vedere o schermata autori o schermata giocatori
-		
-		login.addMouseListener(new MouseListener() {
-			
-			public void mouseClicked(MouseEvent e) {
-				
-			}
-			public void mousePressed(MouseEvent e) {mouseClicked(e);}
-			public void mouseEntered(MouseEvent e) {}
-			public void mouseExited(MouseEvent e) {}
-			public void mouseReleased(MouseEvent e) {}
-		});
-		
 		JButton singIn = new JButton(" SING IN ");
-		singIn.addMouseListener(new MouseListener() {
-			
-			public void mouseClicked(MouseEvent e) {
-				
-			}
-			public void mousePressed(MouseEvent e) {mouseClicked(e);}
-			public void mouseExited(MouseEvent e) {}
-			public void mouseEntered(MouseEvent e) {}
-			public void mouseReleased(MouseEvent e) {}
-		});
 		
 		FlowLayout flow = new FlowLayout(0,510,35);
 		buttonPanel.setLayout(flow);
@@ -84,6 +58,7 @@ public class MenuGui extends JPanel{
 		btn.setRolloverEnabled(true);
 		
 		btn.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mousePressed(MouseEvent e) {mouseClicked(e);}
 			public void mouseEntered(java.awt.event.MouseEvent e) {
 				btn.setBackground(hover);
 				btn.setForeground(Color.white);
@@ -93,6 +68,17 @@ public class MenuGui extends JPanel{
 				btn.setBackground(background);
 				btn.setForeground(text_color);
 			}
+			
+			//dopo l'accesso devi far vedere o schermata autori o schermata giocatori
+			public void mouseClicked(MouseEvent e) {
+				if(btn.getText().equals("  LOGIN  ")) {
+					//TODO: quando click su login fare schermata di login nel portale
+				}
+				else if(btn.getText().equals(" SING IN ")) {
+					//TODO: quando click su singin fare schermata di singin nel portale;
+				}
+			}
+			
 		});
 	}
 	
