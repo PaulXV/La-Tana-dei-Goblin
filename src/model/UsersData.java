@@ -9,7 +9,7 @@ public class UsersData
 	private BufferedWriter bufferWrite;
 	private FileReader fr;
 	private BufferedReader bufferRead;
-	private int numeroUtenti = 0;
+	private int numeroUtenti = 2;
 
 	public void newUser(String nomeUtente, String password, boolean author) throws IOException {
 		numeroUtenti++;

@@ -24,7 +24,7 @@ public class Login extends Entry_System{
 					if(datas.getUserEsistente(Username, Password1))
 						JOptionPane.showMessageDialog(null, "Login Successful");
 					else
-						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Singin.");
+						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Singing in.");
 					
 				} catch (IOException e1) {
 					e1.printStackTrace();

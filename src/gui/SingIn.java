@@ -31,7 +31,7 @@ public class SingIn extends Entry_System {
 						datas.newUser(Username, Password1, author);
 						JOptionPane.showMessageDialog(null, "SUCCESS");
 					}else
-						JOptionPane.showMessageDialog(null, "Failed: try new credentials or Logging in.");
+						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Logging in.");
 				}catch (HeadlessException e1){}
 				catch (IOException e1) {e1.printStackTrace();}
 			}
