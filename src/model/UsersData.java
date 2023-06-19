@@ -18,12 +18,15 @@ public class UsersData
 		
 		String scrivi = numeroUtenti + " " + nomeUtente + " " + password + " " + ((author) ? "a" : "g");
 	
-		bufferWrite.write(scrivi);
+		fw.write(scrivi);
+		fw.append('\n');
+		//bufferWrite.write(scrivi);
+		//bufferWrite.newLine();
 		
 		bufferWrite.close();
 	}
 	
-	public boolean getUserEsistente(String nomeUtente, String password, boolean author) throws IOException {
+	public boolean getUserEsistente(String nomeUtente, String password) throws IOException {
 		
 		fr = new FileReader(path);
 		bufferRead  = new BufferedReader(fr);;
@@ -32,24 +35,23 @@ public class UsersData
 		
 		for(int i=0; i<numeroUtenti; i++) {
 			riga = bufferRead.readLine();
-			char fineRiga = riga.charAt(riga.length()-1);
-			System.out.println(fineRiga);
+
+			String username = riga.split(" ")[1];
+			String passw = riga.split(" ")[2];
 			
-			if(author) {
-				if(fineRiga == 'a')
-				{
-					String username = riga.split(" ")[1];
-					String passw = riga.split(" ")[2];
-					
-					if(username.equals(nomeUtente) && passw.equals(password))
-						res = true;
-					else
-						res = false;
-				}
+			if(username.equals(nomeUtente) && passw.equals(password))
+			{
+				res = true; break;
 			}else
 				res = false;
 		}
 		
 		return res;
+	}
+
+	public boolean isUserLogged(String username, String password1, boolean author) {
+		// TODO: creare un ciclo come in getUserEsistente per controllare che non esista già lo user
+		//se esiste gia ritorna false e sarà impossibile fare il singIn
+		return false;
 	}
 }

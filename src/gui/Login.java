@@ -19,13 +19,12 @@ public class Login extends Entry_System{
 				String Username = username.getText();
 				String Password1 = Password.getText();
 				boolean author = isAuthor.isSelected();
-				author = false;
 				
 				try {
-					if(datas.getUserEsistente(Username, Password1, author))
+					if(datas.getUserEsistente(Username, Password1))
 						JOptionPane.showMessageDialog(null, "Login Successful");
 					else
-						JOptionPane.showMessageDialog(null, "Username or Password mismatch ");
+						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Singin.");
 					
 				} catch (IOException e1) {
 					e1.printStackTrace();

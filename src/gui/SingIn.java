@@ -25,14 +25,13 @@ public class SingIn extends Entry_System {
 				String Username = username.getText();
 				String Password1 = Password.getText();
 				boolean author = isAuthor.isSelected();
-				author = false;
 
 				try {
-					if(!datas.getUserEsistente(Username, Password1, author)) {
+					if(!datas.isUserLogged(Username, Password1, author)) {
 						datas.newUser(Username, Password1, author);
 						JOptionPane.showMessageDialog(null, "SUCCESS");
 					}else
-						JOptionPane.showMessageDialog(null, "Username or Password mismatch");
+						JOptionPane.showMessageDialog(null, "Failed: try new credentials or Logging in.");
 				}catch (HeadlessException e1){}
 				catch (IOException e1) {e1.printStackTrace();}
 			}
