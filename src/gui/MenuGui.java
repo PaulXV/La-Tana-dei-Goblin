@@ -17,7 +17,7 @@ public class MenuGui extends JPanel{
 	private Font title_font = new Font("Serif", Font.BOLD, 60);
 	
 	MenuGui(){
-		this.setBackground(new Color(51, 102, 0));
+		this.setBackground(background);
 		this.setLayout(new GridLayout(0,1));
 		
 		JLabel title = new JLabel("La Tana dei Goblin");
@@ -43,6 +43,8 @@ public class MenuGui extends JPanel{
 		
 		this.add(title);
 		this.add(buttonPanel);
+		
+		//this.remove
 	}
 	
 	private void styleBtn(JButton btn) {
@@ -57,7 +59,6 @@ public class MenuGui extends JPanel{
 		btn.setRolloverEnabled(true);
 		
 		btn.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mousePressed(MouseEvent e) {mouseClicked(e);}
 			public void mouseEntered(java.awt.event.MouseEvent e) {
 				btn.setBackground(hover);
 				btn.setForeground(Color.white);

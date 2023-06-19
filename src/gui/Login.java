@@ -1,6 +1,9 @@
 package gui;
-import javax.swing.*;
 
-public class Login extends JFrame {
+public class Login extends Entry_System{
 
+	Login(){
+		this.setTitle("La Tana dei Goblin - Login");
+		this.setVisible(true);
+	}
 }
