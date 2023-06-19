@@ -65,7 +65,7 @@ public class MenuGui extends JPanel implements Style{
 			public void mouseClicked(MouseEvent e) {
 				if(btn.getText().equals("  LOGIN  ")) {
 					//TODO: quando click su login fare schermata di login nel portale
-					Login l = new Login();
+					Login l = new Login();					
 				}
 				else if(btn.getText().equals(" SING IN ")) {
 					//TODO: quando click su singin fare schermata di singin nel portale;
