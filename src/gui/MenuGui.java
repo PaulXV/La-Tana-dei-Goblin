@@ -6,27 +6,19 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class MenuGui extends JPanel{
-	
-	private Border border = BorderFactory.createLineBorder(Color.white);
-	private Color text_color = new Color(224,224,224);
-	private Color hover = new Color(44,132,0);
-	private Color background = new Color(51,102,0);
-	private Cursor pointer = new Cursor(12);
-	private Font btn_font = new Font("Serif", Font.BOLD, 30);
-	private Font title_font = new Font("Serif", Font.BOLD, 60);
+public class MenuGui extends JPanel implements Style{
 	
 	MenuGui(){
-		this.setBackground(background);
+		this.setBackground(Style.background);
 		this.setLayout(new GridLayout(0,1));
 		
 		JLabel title = new JLabel("La Tana dei Goblin");
-		title.setFont(title_font);
-		title.setForeground(text_color);
+		title.setFont(Style.title_font);
+		title.setForeground(Style.text_color);
 		title.setHorizontalAlignment(0);
 		
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.setBackground(background);
+		buttonPanel.setBackground(Style.background);
 		buttonPanel.setAlignmentY(0);
 		buttonPanel.setAlignmentX(0);
 		
@@ -48,25 +40,25 @@ public class MenuGui extends JPanel{
 	}
 	
 	private void styleBtn(JButton btn) {
-		btn.setFont(btn_font);
+		btn.setFont(Style.btn_font);
 		btn.setFocusable(false);
 		btn.setBorderPainted(true);
-		btn.setBorder(border);
-		btn.setBackground(background);
-		btn.setForeground(text_color);
+		btn.setBorder(Style.border);
+		btn.setBackground(Style.background);
+		btn.setForeground(Style.text_color);
 		btn.setMargin( new Insets(3,3,6,6) );
-		btn.setCursor(pointer);
+		btn.setCursor(Style.pointer);
 		btn.setRolloverEnabled(true);
 		
 		btn.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseEntered(java.awt.event.MouseEvent e) {
-				btn.setBackground(hover);
+				btn.setBackground(Style.hover);
 				btn.setForeground(Color.white);
 			}
 			
 			public void mouseExited(java.awt.event.MouseEvent e) {
-				btn.setBackground(background);
-				btn.setForeground(text_color);
+				btn.setBackground(Style.background);
+				btn.setForeground(Style.text_color);
 			}
 			
 			//dopo l'accesso devi far vedere o schermata autori o schermata giocatori
