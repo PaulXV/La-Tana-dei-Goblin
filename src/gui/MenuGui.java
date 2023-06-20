@@ -1,14 +1,12 @@
 package gui;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.*;
-import javax.swing.border.*;
 
 public class MenuGui extends JPanel implements Style{
 	
 	MenuGui(){
+		
 		this.setBackground(Style.background);
 		this.setLayout(new GridLayout(0,1));
 		
@@ -36,8 +34,10 @@ public class MenuGui extends JPanel implements Style{
 		this.add(title);
 		this.add(buttonPanel);
 		
-		//this.remove
+		//this.remove <-- da usare una volta fatto il login per fa vedere se autore una cosa, se giocatore un'altra
 	}
+	
+	private JPanel returnThisPanel() {return this;}
 	
 	private void styleBtn(JButton btn) {
 		btn.setFont(Style.btn_font);
@@ -64,11 +64,10 @@ public class MenuGui extends JPanel implements Style{
 			//dopo l'accesso devi far vedere o schermata autori o schermata giocatori
 			public void mouseClicked(MouseEvent e) {
 				if(btn.getText().equals("  LOGIN  ")) {
-					//TODO: quando click su login fare schermata di login nel portale
-					Login l = new Login();					
+					Login l = new Login();
+					l.setPanel(returnThisPanel());
 				}
 				else if(btn.getText().equals(" SING IN ")) {
-					//TODO: quando click su singin fare schermata di singin nel portale;
 					SingIn s = new SingIn();
 				}
 			}

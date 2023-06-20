@@ -1,29 +1,26 @@
 package model;
 
 import java.io.*;
+import java.nio.file.*;
 
 public class UsersData
 {
 	private String path = "src/users.txt";
 	private FileWriter fw;
-	private BufferedWriter bufferWrite;
 	private FileReader fr;
 	private BufferedReader bufferRead;
-	private int numeroUtenti = 2;
+	private int numeroUtenti = 5;
 
+	
 	public void newUser(String nomeUtente, String password, boolean author) throws IOException {
 		numeroUtenti++;
 		fw = new FileWriter(path);
-		bufferWrite = new BufferedWriter(fw);
 		
 		String scrivi = numeroUtenti + " " + nomeUtente + " " + password + " " + ((author) ? "a" : "g");
-	
-		fw.write(scrivi);
-		fw.append('\n');
-		//bufferWrite.write(scrivi);
-		//bufferWrite.newLine();
 		
-		bufferWrite.close();
+		fw.write(scrivi);
+			
+		fw.close();
 	}
 	
 	public boolean getUserEsistente(String nomeUtente, String password) throws IOException {
@@ -46,6 +43,9 @@ public class UsersData
 				res = false;
 		}
 		
+		fr.close();
+		bufferRead.close();
+		
 		return res;
 	}
 
@@ -54,4 +54,5 @@ public class UsersData
 		//se esiste gia ritorna false e sarà impossibile fare il singIn
 		return false;
 	}
+
 }

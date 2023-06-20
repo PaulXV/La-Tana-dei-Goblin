@@ -1,2 +1,5 @@
-1 paolo 1234 a
-2 anna 1234 g
+1 paolo 1234 g
+2 anna 1234 a
+3 pietro 4321 a
+4 coce 5432 a
+5 vax 7890 g

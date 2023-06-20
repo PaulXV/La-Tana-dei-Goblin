@@ -9,6 +9,7 @@ import javax.swing.*;
 public class Login extends Entry_System{
 	
 	private UsersData datas = new UsersData();
+	private JPanel panel = new JPanel();
 	
 	Login(){
 		super.setTitle("La Tana dei Goblin - Login");
@@ -21,9 +22,10 @@ public class Login extends Entry_System{
 				boolean author = isAuthor.isSelected();
 				
 				try {
-					if(datas.getUserEsistente(Username, Password1))
+					if(datas.getUserEsistente(Username, Password1)) {
 						JOptionPane.showMessageDialog(null, "Login Successful");
-					else
+						done();
+					}else
 						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Singing in.");
 					
 				} catch (IOException e1) {
@@ -34,5 +36,18 @@ public class Login extends Entry_System{
 		});
 		
 		this.setVisible(true);
+	}
+	
+	public void setPanel(JPanel panel) {this.panel = panel;}
+	
+	public void done(){
+		
+		this.dispose();
+		
+		if(isAuthor.isSelected()) {
+			Author a = new Author(panel);
+		}else {
+			Player p = new Player(panel);
+		}
 	}
 }
