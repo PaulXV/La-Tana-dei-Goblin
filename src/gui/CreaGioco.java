@@ -13,9 +13,11 @@ public class CreaGioco extends JFrame {
 	protected JComboBox<String> authors;
 	protected UsersData u = new UsersData();
 	private MyBtn2 giocoCreato;
+	private JFrame questo;
 	
 	CreaGioco() throws IOException{
 		
+		questo = this;
 		this.setSize(400, 400);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -82,6 +84,7 @@ public class CreaGioco extends JFrame {
 				
 				giocoCreato = new MyBtn2(nome.getText());
 				giocoCreato.setOther(dataEdizione.getText(), descrizione.getText(), authors.getSelectedItem().toString(), giocatori.getText());
+				questo.dispose();
 			}
 		});
 		

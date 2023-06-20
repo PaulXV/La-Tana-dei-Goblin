@@ -26,7 +26,7 @@ public class MyBtn2 extends MyBtn implements Style{
 		this.data = data;
 		this.desc = desc;
 		this.autore = autore;
-		this.numMax = numPly.split("-")[2];
+		this.numMax = numPly.split("-")[1];
 		this.numMin = numPly.split("-")[0];
 	}
 

@@ -2,7 +2,11 @@ package gui;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import model.*;
 
 public class Author{
@@ -37,10 +41,36 @@ public class Author{
 		panSx.setBackground(Style.background);
 		panSx.add(btn);
 		
-		PanelloGioco creaGioco = new PanelloGioco();
+		JPanel container = new JPanel();
+		container.setBackground(Style.background);
+		container.setLayout(new BorderLayout());
+		
+		PanelloGioco areaGiochi = new PanelloGioco();
+		
+		MyBtn createButton = new MyBtn("Crea gioco");
+		createButton.setFont(Style.btn_font_sm);
+		
+		createButton.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				
+				CreaGioco newGioco = null;
+				try {
+					newGioco = new CreaGioco();
+				} catch (IOException e1) {e1.printStackTrace();}
+				
+				if(newGioco.getGioco() != null) {
+					areaGiochi.add(newGioco.getGioco());
+					areaGiochi.setVisible(true);
+				}
+			}
+			
+		});
+		
+		container.add(createButton, BorderLayout.NORTH);
+		container.add(areaGiochi, BorderLayout.CENTER);
 		
 		pannello.add(panSx, BorderLayout.WEST);
-		pannello.add(creaGioco, BorderLayout.CENTER);
+		pannello.add(container, BorderLayout.CENTER);
 		pannello.add(title, BorderLayout.NORTH);
 		pannello.setVisible(true);
 	}
