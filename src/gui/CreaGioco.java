@@ -12,6 +12,7 @@ public class CreaGioco extends JFrame {
 	protected MyBtn button;
 	protected JComboBox<String> authors;
 	protected UsersData u = new UsersData();
+	private MyBtn2 giocoCreato;
 	
 	CreaGioco() throws IOException{
 		
@@ -78,6 +79,9 @@ public class CreaGioco extends JFrame {
 				//TODO: creare un bottone da ritornare tramite una funzione a 'PannelloGioco'
 				//il bottone avrà come testo il nome del gioco e se cliccato potrai vedere le sue caratteristiche
 				//funzione a riga 89 - creare MyBtn2 prima
+				
+				giocoCreato = new MyBtn2(nome.getText());
+				giocoCreato.setOther(dataEdizione.getText(), descrizione.getText(), authors.getSelectedItem().toString(), giocatori.getText());
 			}
 		});
 		
@@ -87,6 +91,6 @@ public class CreaGioco extends JFrame {
 		this.setVisible(true);
 	}
 	
-	//public MyBtn2 newGioco(MyBtn2 btn) {return btn;}
+	public MyBtn2 getGioco() {return giocoCreato;}
 	
 }

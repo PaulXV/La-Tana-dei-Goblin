@@ -9,9 +9,8 @@ public class UsersData
 	private FileWriter fw;
 	private FileReader fr;
 	private BufferedReader bufferRead;
-	private int numeroUtenti = 5;
+	private int numeroUtenti = 6;
 
-	
 	public void newUser(String nomeUtente, String password, boolean author) throws IOException {
 		numeroUtenti++;
 		fw = new FileWriter(path);
