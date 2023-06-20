@@ -13,6 +13,7 @@ public class Player {
 		pannello.repaint();
 		
 		//da qui si modella la nuova schermata: DA PENSARE!
+		// nuovo branch
 	}
 
 }
