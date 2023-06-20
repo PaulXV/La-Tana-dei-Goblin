@@ -8,7 +8,7 @@ public class Entry_System extends JFrame implements Style{
 
 	protected JLabel password_text, label;
 	protected JTextField username;
-	protected JButton button;
+	protected MyBtn button;
 	protected JPasswordField Password;
 	protected boolean isAuthorChecked;
 	protected JCheckBox isAuthor;
@@ -60,16 +60,9 @@ public class Entry_System extends JFrame implements Style{
 		
 		panel.add(isAuthor);
 		
-		button = new JButton("Login");
-		button.setFocusable(false);
+		button = new MyBtn("Login");
 		button.setBounds(100, 110, 90, 25);
-		button.setForeground(Style.text_color);
-		button.setBackground(Style.background);
 		button.setFont(Style.btn_font_sm);
-		
-		button.setBorder(Style.border);
-		button.setCursor(Style.pointer);
-		button.setRolloverEnabled(true);
 		panel.add(button);
 		
 		this.add(panel);

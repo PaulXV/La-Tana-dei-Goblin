@@ -12,6 +12,7 @@ public class Login extends Entry_System{
 	private JPanel panel = new JPanel();
 	
 	Login(){
+		
 		super.setTitle("La Tana dei Goblin - Login");
 		
 		button.addActionListener(new ActionListener() {
@@ -43,11 +44,11 @@ public class Login extends Entry_System{
 	public void done(){
 		
 		this.dispose();
-		
+		panel.setVisible(false);
 		if(isAuthor.isSelected()) {
-			Author a = new Author(panel);
+			Author a = new Author(panel, username.getText());
 		}else {
-			Player p = new Player(panel);
+			Player p = new Player(panel, username.getText());
 		}
 	}
 }
