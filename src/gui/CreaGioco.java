@@ -82,8 +82,14 @@ public class CreaGioco extends JFrame {
 				//il bottone avrà come testo il nome del gioco e se cliccato potrai vedere le sue caratteristiche
 				//funzione a riga 89 - creare MyBtn2 prima
 				
+				
+				
 				giocoCreato = new MyBtn2(nome.getText());
-				giocoCreato.setOther(dataEdizione.getText(), descrizione.getText(), authors.getSelectedItem().toString(), giocatori.getText());
+				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
+						(authors.getSelectedItem().toString() != null) ? authors.getSelectedItem().toString() : "",
+								(giocatori.getText() != null) ? giocatori.getText() : "");
+				
+				
 				questo.dispose();
 			}
 		});

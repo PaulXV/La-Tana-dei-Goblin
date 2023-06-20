@@ -1,7 +1,6 @@
 package gui;
 import java.awt.Color;
 import java.awt.Insets;
-
 import javax.swing.*;
 
 public class MyBtn extends JButton {
