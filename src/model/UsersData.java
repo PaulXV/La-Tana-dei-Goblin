@@ -74,7 +74,7 @@ public class UsersData
 		return res;
 	}
 	
-	public String[] getAllUsers() throws IOException {
+	public String[] getAllAuthors() throws IOException {
 		
 		String[] s = new String[numeroUtenti];
 		
@@ -85,9 +85,10 @@ public class UsersData
 		for(int i=0; i<numeroUtenti-1; i++)
 		{
 			riga = bufferRead.readLine();
-
-			String username = riga.split(" ")[1];
-			s[i] = username;
+			if(riga.charAt(riga.length()-1) == 'a') {
+				String username = riga.split(" ")[1];
+				s[i] = username;
+			}
 		}
 		
 		return s;

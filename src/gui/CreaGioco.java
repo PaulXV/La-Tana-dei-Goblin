@@ -12,12 +12,11 @@ public class CreaGioco extends JFrame {
 	protected MyBtn button;
 	protected JComboBox<String> authors;
 	protected UsersData u = new UsersData();
-	private MyBtn2 giocoCreato;
-	private JFrame questo;
+	private MyLabel giocoCreato;
+	private PannelloGioco g;
 	
-	CreaGioco() throws IOException{
-		
-		questo = this;
+	CreaGioco(PannelloGioco g){
+		this.g = g;
 		this.setSize(400, 400);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -69,7 +68,9 @@ public class CreaGioco extends JFrame {
 		lAut.setBounds(100, 8, 200, 20);
 		lAut.setForeground(Style.text_color);
 		panel.add(lAut);
-		authors = new JComboBox<String>(u.getAllUsers());
+		try {
+			authors = new JComboBox<String>(u.getAllAuthors());
+		} catch (IOException e1) {e1.printStackTrace();}
 		panel.add(authors);
 		
 		button = new MyBtn("Crea");
@@ -78,19 +79,13 @@ public class CreaGioco extends JFrame {
 		button.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
-				//TODO: creare un bottone da ritornare tramite una funzione a 'PannelloGioco'
-				//il bottone avrà come testo il nome del gioco e se cliccato potrai vedere le sue caratteristiche
-				//funzione a riga 89 - creare MyBtn2 prima
 				
-				
-				
-				giocoCreato = new MyBtn2(nome.getText());
+				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName");
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem().toString() != null) ? authors.getSelectedItem().toString() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "");
-				
-				
-				questo.dispose();
+				done();
+			
 			}
 		});
 		
@@ -100,6 +95,9 @@ public class CreaGioco extends JFrame {
 		this.setVisible(true);
 	}
 	
-	public MyBtn2 getGioco() {return giocoCreato;}
+	private void done() {
+		g.addGame(giocoCreato);
+		this.dispose();
+	}
 	
 }

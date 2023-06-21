@@ -2,12 +2,7 @@ package gui;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
-
 import javax.swing.*;
-import javax.swing.border.Border;
-
-import model.*;
 
 public class Author{
 
@@ -30,7 +25,7 @@ public class Author{
 		
 		//per tornare alla home - da aggiungere
 		JPanel panSx = new JPanel();
-		MyBtn btn = new MyBtn("Home");
+		MyBtn btn = new MyBtn(" HOME ");
 		btn.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
@@ -45,7 +40,7 @@ public class Author{
 		container.setBackground(Style.background);
 		container.setLayout(new BorderLayout());
 		
-		PanelloGioco areaGiochi = new PanelloGioco();
+		PannelloGioco areaGiochi = new PannelloGioco();
 		
 		MyBtn createButton = new MyBtn("Crea gioco");
 		createButton.setFont(Style.btn_font_sm);
@@ -53,15 +48,11 @@ public class Author{
 		createButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				
-				CreaGioco newGioco = null;
-				try {
-					newGioco = new CreaGioco();
-				} catch (IOException e1) {e1.printStackTrace();}
-				
-				if(newGioco.getGioco() != null) {
-					areaGiochi.add(newGioco.getGioco());
-					areaGiochi.setVisible(true);
-				}
+				CreaGioco newGioco = new CreaGioco(areaGiochi);
+				areaGiochi.repaint();
+				areaGiochi.setVisible(true);
+				container.repaint();
+				pannello.repaint();
 			}
 			
 		});
@@ -73,5 +64,6 @@ public class Author{
 		pannello.add(container, BorderLayout.CENTER);
 		pannello.add(title, BorderLayout.NORTH);
 		pannello.setVisible(true);
+		
 	}
 }

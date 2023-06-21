@@ -1,27 +1,36 @@
 package gui;
-
 import java.awt.event.*;
+import javax.swing.JLabel;
 
-public class MyBtn2 extends MyBtn implements Style{
+public class MyLabel extends JLabel implements Style{
 
+	private String title;
 	private String data;
 	private String desc;
 	private String autore;
 	private String numMax;
 	private String numMin;
 	
-	MyBtn2(String title) {
-		super(title);
-		this.setFont(btn_font_sm);
+	MyLabel(String title) {
+		this.title = title;
+		this.setFont(Style.title_font_sm);
+		this.setBorder(Style.border);
+		this.setBackground(Style.background);
+		
 		this.addMouseListener(new MouseAdapter() {
 			
 			public void mousePressed(MouseEvent e) {
-				//TODO: creare un frame con le info descritte in 'CreaGioco' linea 80
+				//TODO: creare un frame con le info
 			}
 			
 		});
 	}
 	
+	public String toString() {
+		return "MyLabel [title=" + title + ", data=" + data + ", desc=" + desc + ", autore=" + autore + ", numMax="
+				+ numMax + ", numMin=" + numMin + "]";
+	}
+
 	public void setOther(String data, String desc, String autore, String numPly) {
 		this.data = data;
 		this.desc = desc;
@@ -29,5 +38,5 @@ public class MyBtn2 extends MyBtn implements Style{
 		this.numMax = numPly.split("-")[1];
 		this.numMin = numPly.split("-")[0];
 	}
-
+	
 }
