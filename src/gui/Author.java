@@ -41,6 +41,7 @@ public class Author{
 		container.setLayout(new BorderLayout());
 		
 		PannelloGioco areaGiochi = new PannelloGioco();
+		areaGiochi.setVisible(true);
 		
 		MyBtn createButton = new MyBtn("Crea gioco");
 		createButton.setFont(Style.btn_font_sm);
@@ -50,7 +51,6 @@ public class Author{
 				
 				CreaGioco newGioco = new CreaGioco(areaGiochi);
 				areaGiochi.repaint();
-				areaGiochi.setVisible(true);
 				container.repaint();
 				pannello.repaint();
 			}
