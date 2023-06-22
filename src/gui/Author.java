@@ -17,7 +17,7 @@ public class Author{
 		pannello.removeAll();
 		pannello.setLayout(new BorderLayout());
 		
-		//da qui si modella la nuova schermata: DA PENSARE!
+		//da qui si modella la nuova schermata
 		JLabel title = new JLabel("Eccoci " + nomeUtente.toLowerCase() + "!");
 		title.setFont(Style.title_font_h2);
 		title.setForeground(Style.text_color);
@@ -42,6 +42,7 @@ public class Author{
 		
 		PannelloGioco areaGiochi = new PannelloGioco();
 		areaGiochi.setVisible(true);
+		container.add(areaGiochi, BorderLayout.CENTER);
 		
 		MyBtn createButton = new MyBtn("Crea gioco");
 		createButton.setFont(Style.btn_font_sm);
@@ -58,7 +59,6 @@ public class Author{
 		});
 		
 		container.add(createButton, BorderLayout.NORTH);
-		container.add(areaGiochi, BorderLayout.CENTER);
 		
 		pannello.add(panSx, BorderLayout.WEST);
 		pannello.add(container, BorderLayout.CENTER);
