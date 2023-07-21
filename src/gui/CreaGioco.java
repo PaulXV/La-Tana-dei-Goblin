@@ -82,7 +82,7 @@ public class CreaGioco extends JFrame {
 				
 				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName");
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
-						(authors.getSelectedItem().toString() != null) ? authors.getSelectedItem().toString() : "",
+						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "");
 				done();
 			
@@ -96,6 +96,8 @@ public class CreaGioco extends JFrame {
 	}
 	
 	private void done() {
+		giocoCreato.setVisible(true);
+		giocoCreato.repaint();
 		g.addGame(giocoCreato);
 		g.repaint();
 		this.dispose();
