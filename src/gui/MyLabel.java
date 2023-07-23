@@ -16,6 +16,8 @@ public class MyLabel extends JLabel implements Style{
 		this.setFont(Style.title_font_sm);
 		this.setBorder(Style.border);
 		this.setBackground(Style.background);
+		this.setForeground(Style.text_color);
+		this.setText(title);
 		
 		this.addMouseListener(new MouseAdapter() {
 			

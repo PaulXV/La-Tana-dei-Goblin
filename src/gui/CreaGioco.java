@@ -97,10 +97,7 @@ public class CreaGioco extends JFrame {
 	
 	private void done() {
 		giocoCreato.setVisible(true);
-		giocoCreato.repaint();
 		g.addGame(giocoCreato);
-		g.repaint();
 		this.dispose();
 	}
-	
 }

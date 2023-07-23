@@ -8,6 +8,8 @@ import javax.swing.border.*;
 public class PannelloGioco extends JPanel implements Style{
 
 	private ArrayList<MyLabel> giochiCreati = new ArrayList<MyLabel>();
+	private int numColonne = 3;
+	private int numRighe;
 	
 	public PannelloGioco() {
 		Border border = BorderFactory.createTitledBorder("Giochi creati");
@@ -17,14 +19,14 @@ public class PannelloGioco extends JPanel implements Style{
 		this.setBackground(Style.hover);
 		this.setForeground(Style.text_color);
 		
-		int numColonne = 3;
-		int numRighe = giochiCreati.size() / numColonne + 1;
-		this.setLayout(new GridLayout(numRighe, numColonne));
 		this.setVisible(true);
 	}
 	
 	public void addGame(MyLabel game) {
 		giochiCreati.add(game);
+		numRighe = giochiCreati.size() / numColonne + 1;
+		this.setLayout(new GridLayout(numRighe, numColonne));
+		//System.out.println(game.toString());
 		setGameOnTable();
 	}
 	
