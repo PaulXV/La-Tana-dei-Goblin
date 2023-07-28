@@ -36,6 +36,8 @@ public class PannelloGioco extends JPanel implements Style{
 		for(MyLabel l : giochiCreati)
 			this.add(l);
 		
+		this.invalidate();
+		this.revalidate();
 		this.repaint();
 	}
 }

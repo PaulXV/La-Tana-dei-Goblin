@@ -2,14 +2,15 @@ package gui;
 import java.awt.GridLayout;
 import java.awt.event.*;
 import java.io.IOException;
+import java.time.LocalDate;
 import model.*;
 import javax.swing.*;
 
 public class CreaGioco extends JFrame {
 
-	protected JLabel lNome, lDesc, lGioc, lDate, lAut;
+	protected JLabel lNome, lDesc, lGioc, lAut, lDate;
 	protected JTextField nome, descrizione, giocatori, dataEdizione;
-	protected MyBtn button;
+	protected MyBtn button, chooseDate;
 	protected JComboBox<String> authors;
 	protected UsersData u = new UsersData();
 	private MyLabel giocoCreato;
@@ -53,7 +54,14 @@ public class CreaGioco extends JFrame {
 		dataEdizione = new JTextField();
 		dataEdizione.setBounds(100, 27, 200, 28);
 		dataEdizione.setBorder(null);
+		chooseDate = new MyBtn(" + ");
+		chooseDate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+            	dataEdizione.setText(new DatePick(CreaGioco.this).Set_Picked_Date());
+            }
+        });
 		panel.add(dataEdizione);
+		panel.add(chooseDate);
 		
 		lGioc = new JLabel("Numero di giocatori (nMin - nMax) :");
 		lGioc.setBounds(100, 8, 200, 20);
@@ -76,12 +84,13 @@ public class CreaGioco extends JFrame {
 		button = new MyBtn("Crea");
 		button.setBounds(100, 110, 90, 25);
 		button.setFont(Style.btn_font_sm);
+		
 		button.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
 				
 				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName");
-				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
+				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.toString() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "");
 				done();

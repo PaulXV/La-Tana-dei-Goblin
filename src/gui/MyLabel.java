@@ -1,6 +1,6 @@
 package gui;
 import java.awt.event.*;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class MyLabel extends JLabel implements Style{
 
@@ -22,7 +22,15 @@ public class MyLabel extends JLabel implements Style{
 		this.addMouseListener(new MouseAdapter() {
 			
 			public void mousePressed(MouseEvent e) {
-				//TODO: creare un frame con le info
+				MyLabel.this.setBackground(Style.background);
+				JFrame info = new JFrame();
+				info.setSize(400, 400);
+				info.setLocationRelativeTo(null);
+				info.setResizable(false);
+				info.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+				info.setTitle(title);
+				JPanel panel = new JPanel();
+				panel.setBackground(Style.background);
 			}
 			
 		});
