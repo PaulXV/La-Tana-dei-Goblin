@@ -89,7 +89,7 @@ public class CreaGioco extends JFrame {
 			
 			public void mouseClicked(MouseEvent e) {
 				
-				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName");
+				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName", true);
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "");

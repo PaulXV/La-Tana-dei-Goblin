@@ -10,30 +10,40 @@ public class MyLabel extends JLabel implements Style{
 	private String autore;
 	private String numMax;
 	private String numMin;
+	public boolean author = false;
 	
-	MyLabel(String title) {
-		this.title = title;
+	MyLabel(String title, boolean author) {
+		this.author = author;
+		this.setText(title);
 		this.setFont(Style.title_font_sm);
 		this.setBorder(Style.border);
 		this.setBackground(Style.background);
 		this.setForeground(Style.text_color);
 		this.setText(title);
 		
-		this.addMouseListener(new MouseAdapter() {
+		this.addMouseListener(new MouseAdapter()  {
 			
-			public void mousePressed(MouseEvent e) {
-				MyLabel.this.setBackground(Style.background);
-				JFrame info = new JFrame();
+			public void mouseClicked(MouseEvent e) {
+				/*MyLabel.this.setBackground(Style.background);
+				
 				info.setSize(400, 400);
 				info.setLocationRelativeTo(null);
 				info.setResizable(false);
 				info.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 				info.setTitle(title);
 				JPanel panel = new JPanel();
-				panel.setBackground(Style.background);
+				panel.setBackground(Style.background);*/
+				JFrame info = new JFrame();
+				info.setSize(400, 400);
+				info.setLocationRelativeTo(null);
+				info.setResizable(false);
+				info.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+				info.setTitle(title);
+				info.setVisible(true);
 			}
 			
 		});
+		
 	}
 	
 	public String toString() {

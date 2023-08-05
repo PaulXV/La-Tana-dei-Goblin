@@ -35,7 +35,7 @@ public class PannelloGioco extends JPanel implements Style{
 			
 			for(String s : giochiDaCreare) {
 				String[] gioco = s.split("/");
-				MyLabel newGame = new MyLabel(gioco[0]);
+				MyLabel newGame = new MyLabel(gioco[0], true);
 				newGame.setOtherv2(gioco[1], gioco[2], gioco[3], gioco[4], gioco[5] );
 				
 				addGame(newGame, 1);
