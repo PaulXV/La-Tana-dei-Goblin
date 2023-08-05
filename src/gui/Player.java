@@ -1,11 +1,9 @@
 package gui;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import model.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import javax.swing.*;
 
 public class Player {
 
