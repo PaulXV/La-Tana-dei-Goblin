@@ -22,29 +22,32 @@ public class PannelloGioco extends JPanel implements Style{
 		this.setBackground(Style.hover);
 		this.setForeground(Style.text_color);
 		
-		System.out.println(g.getAllGames());
 		inserisciGiochiEsistenti(g.getAllGames());
 		
 		this.setVisible(true);
 	}
 	
-	private void inserisciGiochiEsistenti(String[] allGames) throws IOException {
+	private void inserisciGiochiEsistenti(String allGames) throws IOException {
 		
-		if(allGames != null)
-			for(String s : allGames) {
-				System.out.println(s.split("// \\)")[1]);
-				MyLabel newGame = new MyLabel(s.split("// \\)")[1]);
+		if(allGames!=null && allGames!="") {
+			//System.out.println(allGames);
+			String[] giochiDaCreare = allGames.split(" div");
+			
+			for(String s : giochiDaCreare) {
+				String[] gioco = s.split("/");
+				MyLabel newGame = new MyLabel(gioco[0]);
+				newGame.setOtherv2(gioco[1], gioco[2], gioco[3], gioco[4], gioco[5] );
+				
 				addGame(newGame, 1);
 			}
+		}
 		
 	}
 
 	public void addGame(MyLabel game, int check) throws IOException {
 		
 		if(check != 1)
-			g.newGame(game); //TODO: scrittura nel file senza sovrascriverlo
-		else
-			g.newGame(game);
+			g.appendGame(game);
 			
 		giochiCreati.add(game);	
 		numRighe = giochiCreati.size() / numColonne + 1;

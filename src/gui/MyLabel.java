@@ -37,8 +37,8 @@ public class MyLabel extends JLabel implements Style{
 	}
 	
 	public String toString() {
-		return title + ")" + data + ")" + desc + ")" + autore + ")"
-				+ numMax + ")" + numMin;
+		return title + "/" + data + "/" + desc + "/" + autore + "/"
+				+ numMax + "/" + numMin + " div\n";
 	}
 
 	public void setOther(String data, String desc, String autore, String numPly) {
@@ -47,6 +47,14 @@ public class MyLabel extends JLabel implements Style{
 		this.autore = autore;
 		this.numMax = numPly.split("-")[1];
 		this.numMin = numPly.split("-")[0];
+	}
+	
+	public void setOtherv2(String data, String desc, String autore, String max, String min) {
+		this.data = data;
+		this.desc = desc;
+		this.autore = autore;
+		this.numMax = max;
+		this.numMin = min;
 	}
 	
 }

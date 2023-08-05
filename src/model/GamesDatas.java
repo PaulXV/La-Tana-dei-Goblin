@@ -8,35 +8,45 @@ public class GamesDatas
 	private FileWriter fw;
 	private FileReader fr;
 	private BufferedReader bufferRead;
-	private int numeroGiochi = 3;
 
 	public void newGame(MyLabel giocoDaAggiungere) throws IOException {
-		numeroGiochi++;
 		fw = new FileWriter(path);
 		
-		String scrivi = numeroGiochi + ")" + giocoDaAggiungere.toString();
+		String scrivi = giocoDaAggiungere.toString();
 		
 		fw.write(scrivi);
 			
 		fw.close();
 	}
 	
-	public String[] getAllGames() throws IOException {
+	public void appendGame(MyLabel giocoDaAppendere) throws IOException {
+		BufferedWriter out = new BufferedWriter(new FileWriter(path, true));
+		out.write("\n"+giocoDaAppendere.toString());
+		out.close();
+	}
+	
+	public String getAllGames() throws IOException {
 		
-		String[] s = new String[numeroGiochi];
+		String s = "";
 		
 		fr = new FileReader(path);
 		bufferRead  = new BufferedReader(fr);;
 		String riga;
-		
-		for(int i=0; i<numeroGiochi-1; i++)
-		{
-			riga = bufferRead.readLine();
-			s[i] += riga;
+		riga = bufferRead.readLine();
+		if(riga == null)
+			return s;
+		else{
+			while(!riga.isEmpty())
+			{
+				//System.out.println("entrato");
+				s += riga;
+				riga = bufferRead.readLine();
+				
+				if(riga==null)
+					break;
+			}
 		}
-		
 		return s;
-		
 	}
 	
 }
