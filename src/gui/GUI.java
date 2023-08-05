@@ -5,7 +5,7 @@ import model.*;
 
 public class GUI extends JFrame{
 
-	GUI(){
+	public GUI(){
 		this.setLayout(new BorderLayout());
 		this.setTitle("La Tana dei Goblin"); //TODO
 		this.setSize(1200, 800);

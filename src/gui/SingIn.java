@@ -1,11 +1,9 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import model.*;
 import javax.swing.*;
 
@@ -29,6 +27,10 @@ public class SingIn extends Entry_System {
 				try {
 					if(!datas.isUserLogged(Username, Password1, author)) {
 						datas.newUser(Username, Password1, author);
+						if(author) {
+							Autore autore = new Autore(username.getText(), "", "");
+						}
+						
 						JOptionPane.showMessageDialog(null, "SUCCESS");
 					}else
 						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Logging in.");

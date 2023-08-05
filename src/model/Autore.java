@@ -9,7 +9,7 @@ public class Autore {
 	private ArrayList<Premio> premiVinti = new ArrayList<Premio>();
 	private ArrayList<Gioco> giochiPremiati = new ArrayList<Gioco>();
 	
-	Autore(String nome, String dataNascita, String biografia)
+	public Autore(String nome, String dataNascita, String biografia)
 	{
 		this.nome = nome;
 		this.dataNascita = dataNascita;
