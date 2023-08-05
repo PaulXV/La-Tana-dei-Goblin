@@ -41,7 +41,7 @@ public class Login extends Entry_System{
 	
 	public void setPanel(JPanel panel) {this.panel = panel;}
 	
-	public void done(){
+	public void done() throws IOException{
 		
 		this.dispose();
 		panel.setVisible(false);

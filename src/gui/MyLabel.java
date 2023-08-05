@@ -37,8 +37,8 @@ public class MyLabel extends JLabel implements Style{
 	}
 	
 	public String toString() {
-		return "MyLabel [title=" + title + ", data=" + data + ", desc=" + desc + ", autore=" + autore + ", numMax="
-				+ numMax + ", numMin=" + numMin + "]";
+		return title + ")" + data + ")" + desc + ")" + autore + ")"
+				+ numMax + ")" + numMin;
 	}
 
 	public void setOther(String data, String desc, String autore, String numPly) {

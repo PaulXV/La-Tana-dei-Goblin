@@ -93,7 +93,9 @@ public class CreaGioco extends JFrame {
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.toString() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "");
-				done();
+				try {
+					done();
+				}catch (IOException e1) {e1.printStackTrace();}
 			
 			}
 		});
@@ -104,9 +106,9 @@ public class CreaGioco extends JFrame {
 		this.setVisible(true);
 	}
 	
-	private void done() {
+	private void done() throws IOException {
 		giocoCreato.setVisible(true);
-		g.addGame(giocoCreato);
+		g.addGame(giocoCreato, 2);
 		this.dispose();
 	}
 }

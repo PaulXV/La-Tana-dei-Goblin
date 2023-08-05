@@ -2,6 +2,8 @@ package gui;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
 import javax.swing.*;
 
 public class Author{
@@ -10,7 +12,7 @@ public class Author{
 	private JPanel pannello = new JPanel();
 	private String nomeUtente;
 	
-	Author(JPanel jPanel, String nome){
+	Author(JPanel jPanel, String nome) throws IOException{
 		//serve per cancellare gli elementi di MenuGui e aggiornare il panel in modo che sia vuoto
 		this.pannello = jPanel;
 		this.nomeUtente = nome;
