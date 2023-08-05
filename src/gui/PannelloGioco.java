@@ -22,6 +22,7 @@ public class PannelloGioco extends JPanel implements Style{
 		this.setBackground(Style.hover);
 		this.setForeground(Style.text_color);
 		
+		System.out.println(g.getAllGames());
 		inserisciGiochiEsistenti(g.getAllGames());
 		
 		this.setVisible(true);
@@ -31,7 +32,8 @@ public class PannelloGioco extends JPanel implements Style{
 		
 		if(allGames != null)
 			for(String s : allGames) {
-				MyLabel newGame = new MyLabel(s.split(")")[0]);
+				System.out.println(s.split("// \\)")[1]);
+				MyLabel newGame = new MyLabel(s.split("// \\)")[1]);
 				addGame(newGame, 1);
 			}
 		
@@ -40,6 +42,8 @@ public class PannelloGioco extends JPanel implements Style{
 	public void addGame(MyLabel game, int check) throws IOException {
 		
 		if(check != 1)
+			g.newGame(game); //TODO: scrittura nel file senza sovrascriverlo
+		else
 			g.newGame(game);
 			
 		giochiCreati.add(game);	

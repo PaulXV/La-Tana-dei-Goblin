@@ -8,7 +8,7 @@ public class GamesDatas
 	private FileWriter fw;
 	private FileReader fr;
 	private BufferedReader bufferRead;
-	private int numeroGiochi = 0;
+	private int numeroGiochi = 3;
 
 	public void newGame(MyLabel giocoDaAggiungere) throws IOException {
 		numeroGiochi++;
@@ -32,7 +32,7 @@ public class GamesDatas
 		for(int i=0; i<numeroGiochi-1; i++)
 		{
 			riga = bufferRead.readLine();
-			s[i] = riga;
+			s[i] += riga;
 		}
 		
 		return s;
