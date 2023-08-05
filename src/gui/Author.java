@@ -8,7 +8,6 @@ import javax.swing.*;
 
 public class Author{
 
-	//private JFrame frame;
 	private JPanel pannello = new JPanel();
 	private String nomeUtente;
 	
@@ -53,8 +52,6 @@ public class Author{
 			public void mouseClicked(MouseEvent e) {
 				
 				CreaGioco newGioco = new CreaGioco(areaGiochi);
-				//areaGiochi.repaint();
-				//container.repaint();
 				pannello.repaint();
 			}
 			
