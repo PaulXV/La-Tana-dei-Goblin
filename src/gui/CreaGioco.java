@@ -2,7 +2,6 @@ package gui;
 import java.awt.GridLayout;
 import java.awt.event.*;
 import java.io.IOException;
-import java.time.LocalDate;
 import model.*;
 import javax.swing.*;
 

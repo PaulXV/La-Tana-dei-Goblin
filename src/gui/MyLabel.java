@@ -1,4 +1,5 @@
 package gui;
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -19,26 +20,26 @@ public class MyLabel extends JLabel implements Style{
 		this.setBorder(Style.border);
 		this.setBackground(Style.background);
 		this.setForeground(Style.text_color);
-		this.setText(title);
 		
 		this.addMouseListener(new MouseAdapter()  {
 			
 			public void mouseClicked(MouseEvent e) {
-				/*MyLabel.this.setBackground(Style.background);
-				
-				info.setSize(400, 400);
-				info.setLocationRelativeTo(null);
-				info.setResizable(false);
-				info.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-				info.setTitle(title);
-				JPanel panel = new JPanel();
-				panel.setBackground(Style.background);*/
 				JFrame info = new JFrame();
+				info.setBackground(Style.background);
+				info.setLayout(new BorderLayout());
 				info.setSize(400, 400);
 				info.setLocationRelativeTo(null);
 				info.setResizable(false);
 				info.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 				info.setTitle(title);
+				
+				JLabel titolo = new JLabel(title);
+				titolo.setFont(Style.title_font_sm);
+				titolo.setForeground(Style.text_color);
+				titolo.setHorizontalAlignment(0);
+				titolo.setBackground(Style.background);
+				
+				info.add(titolo, BorderLayout.NORTH);
 				info.setVisible(true);
 			}
 			

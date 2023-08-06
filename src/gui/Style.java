@@ -20,5 +20,5 @@ public interface Style {
 	
 	Border border = BorderFactory.createLineBorder(Color.white);
 	
-	Icon home = new ImageIcon("icon.png");
+	//Icon home = new ImageIcon("icon.png");
 }
