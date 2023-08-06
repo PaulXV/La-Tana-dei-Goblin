@@ -41,7 +41,7 @@ public class Author{
 		container.setBackground(Style.background);
 		container.setLayout(new BorderLayout());
 		
-		PannelloGioco areaGiochi = new PannelloGioco(true);
+		PannelloGioco areaGiochi = new PannelloGioco(true, nome);
 		areaGiochi.setVisible(true);
 		container.add(areaGiochi, BorderLayout.CENTER);
 		
@@ -51,7 +51,7 @@ public class Author{
 		createButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				
-				CreaGioco newGioco = new CreaGioco(areaGiochi);
+				CreaGioco newGioco = new CreaGioco(areaGiochi, nomeUtente);
 				pannello.repaint();
 			}
 			

@@ -8,12 +8,13 @@ public class MyLabel extends JLabel implements Style{
 	private String title;
 	private String data;
 	private String desc;
-	private String autore;
+	private String collab;
 	private String numMax;
 	private String numMin;
 	public boolean author = false;
+	private String autore;
 	
-	MyLabel(String title, boolean author) {
+	MyLabel(String title, boolean author, String autore) {
 		this.author = author;
 		this.setText(title);
 		this.setFont(Style.title_font_sm);
@@ -65,8 +66,14 @@ public class MyLabel extends JLabel implements Style{
 				info.add(coAuthor);
 				
 				if(!author) {
+					JLabel buttonContainer = new JLabel();
+					buttonContainer.setLayout(new GridLayout(1,2));
 					MyBtn addToList = new MyBtn("Add Game");
-					info.add(addToList);
+					MyBtn removeFromList = new MyBtn("Remove Game");
+					buttonContainer.add(addToList);
+					buttonContainer.add(removeFromList);
+					info.add(buttonContainer);
+					
 				}else {
 					MyBtn delete = new MyBtn("Delete");
 					info.add(delete);
@@ -80,22 +87,22 @@ public class MyLabel extends JLabel implements Style{
 	}
 	
 	public String toString() {
-		return title + "/" + data + "/" + desc + "/" + autore + "/"
+		return autore + "/"+ title + "/" + data + "/" + desc + "/" + collab + "/"
 				+ numMax + "/" + numMin + " div\n";
 	}
 
-	public void setOther(String data, String desc, String autore, String numPly) {
+	public void setOther(String data, String desc, String collab, String numPly) {
 		this.data = data;
 		this.desc = desc;
-		this.autore = autore;
+		this.collab = collab;
 		this.numMax = numPly.split("-")[1];
 		this.numMin = numPly.split("-")[0];
 	}
 	
-	public void setOtherv2(String data, String desc, String autore, String max, String min) {
+	public void setOtherv2(String data, String desc, String collab, String max, String min) {
 		this.data = data;
 		this.desc = desc;
-		this.autore = autore;
+		this.collab = collab;
 		this.numMax = max;
 		this.numMin = min;
 	}
