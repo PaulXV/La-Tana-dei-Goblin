@@ -9,7 +9,7 @@ public class UsersData
 
 	public void newUser(String nomeUtente, String password, boolean author) throws IOException {
 		BufferedWriter out = new BufferedWriter(new FileWriter(path, true));
-		String scrivi = "\n"+nomeUtente + " " + password + " " + ((author) ? "a" : "g") + " div";
+		String scrivi = "\n"+nomeUtente + "/" + password + "/" + ((author) ? "a" : "g") + " div";
 		out.write(scrivi);
 		out.close();
 	}
