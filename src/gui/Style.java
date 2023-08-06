@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.*;
-import javax.swing.BorderFactory;
 import javax.swing.border.*;
 import javax.swing.*;
 
@@ -20,5 +19,5 @@ public interface Style {
 	
 	Border border = BorderFactory.createLineBorder(Color.white);
 	
-	//Icon home = new ImageIcon("icon.png");
+	ImageIcon home = new ImageIcon("download.png");
 }

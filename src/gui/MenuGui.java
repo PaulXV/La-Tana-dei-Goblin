@@ -51,7 +51,6 @@ public class MenuGui extends JPanel implements Style{
 					SingIn s = new SingIn();
 				}
 			}
-			
 		});
 	}
 	
