@@ -40,7 +40,7 @@ public class Player {
 		container.setBackground(Style.background);
 		container.setLayout(new BorderLayout());
 		
-		PannelloGioco areaGiochi = new PannelloGioco();
+		PannelloGioco areaGiochi = new PannelloGioco(false);
 		areaGiochi.setVisible(true);
 		container.add(areaGiochi, BorderLayout.CENTER);
 		

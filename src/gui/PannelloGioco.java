@@ -12,9 +12,11 @@ public class PannelloGioco extends JPanel implements Style{
 	private ArrayList<MyLabel> giochiCreati = new ArrayList<MyLabel>();
 	private int numColonne = 3;
 	private int numRighe;
+	private boolean isAuthor;
 	private GamesDatas g = new GamesDatas();
 	
-	public PannelloGioco() throws IOException {
+	public PannelloGioco(boolean isAuthor) throws IOException {
+		this.isAuthor = isAuthor;
 		Border border = BorderFactory.createTitledBorder("Giochi creati");
 		Border brd = BorderFactory.createTitledBorder(border, "Giochi creati", 0, 0, btn_font_sm);
 		Border border2 = BorderFactory.createEmptyBorder(10,10,10,10);
@@ -35,7 +37,7 @@ public class PannelloGioco extends JPanel implements Style{
 			
 			for(String s : giochiDaCreare) {
 				String[] gioco = s.split("/");
-				MyLabel newGame = new MyLabel(gioco[0], true);
+				MyLabel newGame = new MyLabel(gioco[0], isAuthor);
 				newGame.setOtherv2(gioco[1], gioco[2], gioco[3], gioco[4], gioco[5] );
 				
 				addGame(newGame, 1);

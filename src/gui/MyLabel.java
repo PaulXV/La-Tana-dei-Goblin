@@ -26,7 +26,7 @@ public class MyLabel extends JLabel implements Style{
 			public void mouseClicked(MouseEvent e) {
 				JFrame info = new JFrame(title);
 				info.setBackground(Style.text_color);
-				info.setLayout(new GridLayout(5,1));
+				info.setLayout(new GridLayout(6,1));
 				info.setSize(400, 400);
 				info.setLocationRelativeTo(null);
 				info.setResizable(false);
@@ -63,6 +63,14 @@ public class MyLabel extends JLabel implements Style{
 				info.add(descrizione);
 				info.add(numPLYs);
 				info.add(coAuthor);
+				
+				if(!author) {
+					MyBtn addToList = new MyBtn("Add Game");
+					info.add(addToList);
+				}else {
+					MyBtn delete = new MyBtn("Delete");
+					info.add(delete);
+				}
 				
 				info.setVisible(true);
 			}
