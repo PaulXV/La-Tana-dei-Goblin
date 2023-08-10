@@ -27,8 +27,8 @@ public class Login extends Entry_System{
 						JOptionPane.showMessageDialog(null, "Login Successful");
 						done();
 					}else
-						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Singing in.");
-					
+						JOptionPane.showOptionDialog(null, "Failed: try other credentials or Singing in.", "Login Issue", 2, 2, null, null, null);
+						
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -46,9 +46,9 @@ public class Login extends Entry_System{
 		this.dispose();
 		panel.setVisible(false);
 		if(isAuthor.isSelected()) {
-			Author a = new Author(panel, username.getText());
+			Author a = new Author(panel, username.getText(), (JFrame) this.getFrames()[0]);
 		}else {
-			Player p = new Player(panel, username.getText());
+			Player p = new Player(panel, username.getText(), (JFrame) this.getFrames()[0]);
 		}
 	}
 }

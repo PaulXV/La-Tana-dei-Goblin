@@ -23,19 +23,24 @@ public class SingIn extends Entry_System {
 				String Username = username.getText();
 				String Password1 = Password.getText();
 				boolean author = isAuthor.isSelected();
-
-				try {
-					if(!datas.isUserLogged(Username, Password1, author)) {
-						datas.newUser(Username, Password1, author);
-						if(author) {
-							Autore autore = new Autore(username.getText(), "", "");
-						}
+				
+				if(!Username.isEmpty()) {
+					try {
+						if(!datas.getUserEsistente(Username, Password1, author)) {
+							datas.newUser(Username, Password1, author);
+							if(author) {
+								Autore autore = new Autore(username.getText(), "", "");
+							}
+							
+							JOptionPane.showMessageDialog(null, "SUCCESS");
+							SingIn.this.dispose();
+						}else
+							JOptionPane.showOptionDialog(null, "Failed: try other credentials or Singing in.", "SingIn Issue", 2, 2, null, null, null);
 						
-						JOptionPane.showMessageDialog(null, "SUCCESS");
-					}else
-						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Logging in.");
-				}catch (HeadlessException e1){}
-				catch (IOException e1) {e1.printStackTrace();}
+					}catch (HeadlessException e1){}
+					catch (IOException e1) {e1.printStackTrace();}
+				}else
+					JOptionPane.showOptionDialog(null, "Failed: try other credentials or Singing in.", "SingIn Issue", 2, 2, null, null, null);
 			}
 		});
 		

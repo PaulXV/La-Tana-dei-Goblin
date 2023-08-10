@@ -10,8 +10,10 @@ public class Author{
 
 	private JPanel pannello = new JPanel();
 	private String nomeUtente;
+	private JFrame frame = new JFrame();
 	
-	Author(JPanel jPanel, String nome) throws IOException{
+	Author(JPanel jPanel, String nome, JFrame jFrame) throws IOException{
+		this.frame = frame;
 		//serve per cancellare gli elementi di MenuGui e aggiornare il panel in modo che sia vuoto
 		this.pannello = jPanel;
 		this.nomeUtente = nome;
@@ -30,10 +32,10 @@ public class Author{
 		btn.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent e) {
-				
+				GUI gui = new GUI();
+				frame.dispose();
 			}
 		});
-		
 		panSx.setBackground(Style.background);
 		panSx.add(btn);
 		

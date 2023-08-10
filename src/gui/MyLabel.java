@@ -56,7 +56,7 @@ public class MyLabel extends JLabel implements Style{
 				numPLYs.setForeground(Style.background);
 				numPLYs.setBackground(Style.background);
 				
-				JLabel coAuthor = new JLabel("Autore in collab: " + autore);
+				JLabel coAuthor = new JLabel("Autore " + autore + ", collab di: " + collab);
 				coAuthor.setFont(Style.title_font_sm);
 				coAuthor.setForeground(Style.background);
 				coAuthor.setBackground(Style.background);

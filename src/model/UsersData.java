@@ -35,7 +35,7 @@ public class UsersData
 				{
 					if(isAuthor && author.equals("a")) {
 						res = true; break;
-					}else if(!isAuthor && author.equals("p")){
+					}else if(!isAuthor && author.equals("g")){
 						res = true; break;
 					}else
 						res = false;
@@ -55,41 +55,6 @@ public class UsersData
 		return res;
 	}
 
-	public boolean isUserLogged(String username, String password1, boolean author) throws IOException {
-		
-		fr = new FileReader(path);
-		bufferRead  = new BufferedReader(fr);;
-		String riga;
-		boolean res = false;
-		
-		riga = bufferRead.readLine();
-		
-		if(riga == null)
-			return false;
-		else{
-			while(!riga.isEmpty())
-			{
-				String nome = riga.split("/")[0];
-				String passw = riga.split("/")[1];
-				
-				if(nome.equals(username) && passw.equals(password1))
-				{
-					res = false; break;
-				}else
-					res = true;
-				
-				riga = bufferRead.readLine();
-				
-				if(riga == null)
-					return false;
-			}
-		}
-		fr.close();
-		bufferRead.close();
-		
-		return res;
-	}
-	
 	public String[] getAllAuthors() throws IOException {
 		
 		String[] s  = new String[100]; //ci possono essere al massino 100 user
