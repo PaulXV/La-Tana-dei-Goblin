@@ -23,7 +23,7 @@ public class Login extends Entry_System{
 				boolean author = isAuthor.isSelected();
 				
 				try {
-					if(datas.getUserEsistente(Username, Password1)) {
+					if(datas.getUserEsistente(Username, Password1, author)) {
 						JOptionPane.showMessageDialog(null, "Login Successful");
 						done();
 					}else

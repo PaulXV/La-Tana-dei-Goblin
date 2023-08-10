@@ -14,7 +14,7 @@ public class UsersData
 		out.close();
 	}
 	
-	public boolean getUserEsistente(String nomeUtente, String password) throws IOException {
+	public boolean getUserEsistente(String nomeUtente, String password, boolean isAuthor) throws IOException {
 		
 		fr = new FileReader(path);
 		bufferRead  = new BufferedReader(fr);;
@@ -26,12 +26,20 @@ public class UsersData
 		else{
 			while(!riga.isEmpty())
 			{	
-				String username = riga.split("/")[0];
-				String passw = riga.split("/")[1];
+				String[] login = riga.split("/");
+				String username = login[0];
+				String passw = login[1];
+				String author = login[2].split(" ")[0];
 				
 				if(username.equals(nomeUtente) && passw.equals(password))
 				{
-					res = true; break;
+					if(isAuthor && author.equals("a")) {
+						res = true; break;
+					}else if(!isAuthor && author.equals("p")){
+						res = true; break;
+					}else
+						res = false;
+							
 				}else
 					res = false;
 				

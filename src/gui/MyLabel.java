@@ -16,6 +16,8 @@ public class MyLabel extends JLabel implements Style{
 	
 	MyLabel(String title, boolean author, String autore) {
 		this.author = author;
+		this.autore = autore;
+		this.title = title;
 		this.setText(title);
 		this.setFont(Style.title_font_sm);
 		this.setBorder(Style.border);
@@ -88,7 +90,7 @@ public class MyLabel extends JLabel implements Style{
 	
 	public String toString() {
 		return autore + "/"+ title + "/" + data + "/" + desc + "/" + collab + "/"
-				+ numMax + "/" + numMin + " div\n";
+				+ numMax + "/" + numMin + " div";
 	}
 
 	public void setOther(String data, String desc, String collab, String numPly) {
