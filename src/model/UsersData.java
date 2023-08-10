@@ -57,7 +57,7 @@ public class UsersData
 
 	public String[] getAllAuthors() throws IOException {
 		
-		String[] s  = new String[100]; //ci possono essere al massino 100 user
+		String[] s  = new String[1]; //valore iniziale
 		String temp = "";
 		int cnt = 0;
 		

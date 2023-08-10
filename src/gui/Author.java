@@ -14,6 +14,7 @@ public class Author{
 	
 	Author(JPanel jPanel, String nome, JFrame jFrame) throws IOException{
 		this.frame = frame;
+		
 		//serve per cancellare gli elementi di MenuGui e aggiornare il panel in modo che sia vuoto
 		this.pannello = jPanel;
 		this.nomeUtente = nome;
@@ -26,7 +27,6 @@ public class Author{
 		title.setForeground(Style.text_color);
 		title.setHorizontalAlignment(0);
 		
-		//per tornare alla home - da aggiungere
 		JPanel panSx = new JPanel();
 		MyBtn btn = new MyBtn(" HOME ");
 		btn.addMouseListener(new MouseAdapter() {

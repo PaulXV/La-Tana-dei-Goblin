@@ -32,7 +32,6 @@ public class PannelloGioco extends JPanel implements Style{
 	private void inserisciGiochiEsistenti(String allGames, String autore) throws IOException {
 		
 		if(allGames!=null && allGames!="") {
-			//System.out.println(allGames);
 			String[] giochiDaCreare = allGames.split(" div");
 			if(autore != "") {
 				for(String s : giochiDaCreare) {
@@ -66,7 +65,6 @@ public class PannelloGioco extends JPanel implements Style{
 		giochiCreati.add(game);	
 		numRighe = giochiCreati.size() / numColonne + 1;
 		this.setLayout(new GridLayout(numRighe, numColonne));
-		//System.out.println(game.toString());
 		setGameOnTable();
 	}
 	

@@ -28,9 +28,6 @@ public class SingIn extends Entry_System {
 					try {
 						if(!datas.getUserEsistente(Username, Password1, author)) {
 							datas.newUser(Username, Password1, author);
-							if(author) {
-								Autore autore = new Autore(username.getText(), "", "");
-							}
 							
 							JOptionPane.showMessageDialog(null, "SUCCESS");
 							SingIn.this.dispose();

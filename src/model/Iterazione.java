@@ -5,6 +5,7 @@ public enum Iterazione
 	COOPERATIVO,
 	COMPETITIVO,
 	SEMICOOPERATIVO;
+	
 	/*
 	Iterazione i;
 	

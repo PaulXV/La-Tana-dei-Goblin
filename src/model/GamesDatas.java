@@ -38,7 +38,6 @@ public class GamesDatas
 		else{
 			while(!riga.isEmpty())
 			{
-				//System.out.println("entrato");
 				s += riga;
 				riga = bufferRead.readLine();
 				

@@ -41,7 +41,6 @@ public class MenuGui extends JPanel implements Style{
 		btn.setFont(Style.btn_font);
 		btn.addMouseListener(new java.awt.event.MouseAdapter() {
 			
-			//dopo l'accesso devi far vedere o schermata autori o schermata giocatori
 			public void mouseClicked(MouseEvent e) {
 				if(btn.getText().equals("  LOGIN  ")) {
 					Login l = new Login();
