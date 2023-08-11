@@ -7,9 +7,9 @@ public class UsersData
 	private FileReader fr;
 	private BufferedReader bufferRead;
 
-	public void newUser(String nomeUtente, String password, boolean author) throws IOException {
+	public void newUser(String nomeUtente, String password, boolean author, String dataNascita) throws IOException {
 		BufferedWriter out = new BufferedWriter(new FileWriter(path, true));
-		String scrivi = "\n"+nomeUtente + "/" + password + "/" + ((author) ? "a" : "g") + " div";
+		String scrivi = "\n"+nomeUtente + "/" + password + "/" + ((author) ? "a" : "g") + "/" + dataNascita + " div";
 		out.write(scrivi);
 		out.close();
 	}

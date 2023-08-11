@@ -6,15 +6,15 @@ import javax.swing.*;
 
 public class Entry_System extends JFrame implements Style{
 
-	protected JLabel password_text, label;
+	protected JLabel password_text, label, dataNascita;
 	protected JTextField username;
-	protected MyBtn button;
+	protected MyBtn button, chooseDate;
 	protected JPasswordField Password;
 	protected boolean isAuthorChecked;
 	protected JCheckBox isAuthor;
 	
 	Entry_System(){
-		this.setSize(400, 250);
+		this.setSize(400, 300);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -59,6 +59,21 @@ public class Entry_System extends JFrame implements Style{
 		});
 		
 		panel.add(isAuthor);
+		
+		dataNascita = new JLabel("Inserisci la tua data di nascita:");
+		dataNascita.setBounds(100, 55, 200, 20);
+		dataNascita.setForeground(Style.text_color);
+		dataNascita.setBorder(null);
+		dataNascita.setVisible(false);
+		chooseDate = new MyBtn(" + ");
+		chooseDate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+            	dataNascita.setText("Data di nascita: " + new DatePick(Entry_System.this).Set_Picked_Date());
+            }
+        });
+		chooseDate.setVisible(false);
+		panel.add(dataNascita);
+		panel.add(chooseDate);
 		
 		button = new MyBtn("Login");
 		button.setBounds(100, 110, 90, 25);
