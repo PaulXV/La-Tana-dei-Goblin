@@ -2,6 +2,8 @@ package gui;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
 import javax.swing.*;
 import model.*;
 
@@ -13,16 +15,18 @@ public class MyLabel extends JLabel implements Style{
 	private String collab;
 	private String numMax;
 	private String numMin;
-	public boolean author = false;
+	private boolean author = false;
 	private String autore;
 	private Premio premio;
 	private String premio2;
+	private ListaGiochi listaGiochi;
 	
 	MyLabel(String title, boolean author, String autore) {
 		this.author = author;
 		this.autore = autore;
 		this.title = title;
 		this.setText(title);
+		this.setHorizontalAlignment(0);
 		this.setFont(Style.title_font_sm);
 		this.setBorder(Style.border);
 		this.setBackground(Style.background);
@@ -82,6 +86,16 @@ public class MyLabel extends JLabel implements Style{
 					buttonContainer.setLayout(new GridLayout(1,2));
 					MyBtn addToList = new MyBtn("Add Game");
 					MyBtn removeFromList = new MyBtn("Remove Game");
+					
+					addToList.addMouseListener(new MouseAdapter() {
+						
+						public void mouseClicked(MouseEvent e){
+							try {
+								listaGiochi.addGame(MyLabel.this);
+							} catch (IOException e1) {e1.printStackTrace();}
+						}
+					});
+					
 					buttonContainer.add(addToList);
 					buttonContainer.add(removeFromList);
 					info.add(buttonContainer);
@@ -121,4 +135,5 @@ public class MyLabel extends JLabel implements Style{
 		this.premio2 = premio;
 	}
 	
+	public void setListaGiochi(ListaGiochi l) {this.listaGiochi = l;}
 }

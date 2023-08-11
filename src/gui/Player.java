@@ -42,9 +42,13 @@ public class Player {
 		container.setBackground(Style.background);
 		container.setLayout(new BorderLayout());
 		
-		PannelloGioco areaGiochi = new PannelloGioco(false, "");
+		ListaGiochi lista = new ListaGiochi();
+		lista.setVisible(true);
+		PannelloGioco areaGiochi = new PannelloGioco(false, "", lista);
 		areaGiochi.setVisible(true);
+		
 		container.add(areaGiochi, BorderLayout.CENTER);
+		container.add(lista, BorderLayout.SOUTH);
 		
 		pannello.add(panSx, BorderLayout.WEST);
 		pannello.add(container, BorderLayout.CENTER);

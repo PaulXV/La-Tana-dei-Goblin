@@ -14,8 +14,9 @@ public class PannelloGioco extends JPanel implements Style{
 	private int numRighe;
 	private boolean isAuthor;
 	private GamesDatas g = new GamesDatas();
+	private ListaGiochi l = new ListaGiochi();
 	
-	public PannelloGioco(boolean isAuthor, String autore) throws IOException {
+	public PannelloGioco(boolean isAuthor, String autore, ListaGiochi l) throws IOException {
 		this.isAuthor = isAuthor;
 		Border border = BorderFactory.createTitledBorder("Giochi creati");
 		Border brd = BorderFactory.createTitledBorder(border, "Giochi creati", 0, 0, btn_font_sm);
@@ -23,6 +24,7 @@ public class PannelloGioco extends JPanel implements Style{
 		this.setBorder(BorderFactory.createCompoundBorder(brd, border2));
 		this.setBackground(Style.hover);
 		this.setForeground(Style.text_color);
+		this.l = l;
 		
 		inserisciGiochiEsistenti(g.getAllGames(), autore);
 		
@@ -49,7 +51,7 @@ public class PannelloGioco extends JPanel implements Style{
 					String[] gioco = s.split("/");
 					MyLabel newGame = new MyLabel(gioco[1], isAuthor, gioco[0]);
 					newGame.setOtherv2(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7] );
-					
+					newGame.setListaGiochi(l);
 					addGame(newGame, 1);
 				}
 			}
@@ -68,7 +70,7 @@ public class PannelloGioco extends JPanel implements Style{
 		setGameOnTable();
 	}
 	
-	public void setGameOnTable() {
+	private void setGameOnTable() {
 		this.removeAll();
 		
 		for(MyLabel l : giochiCreati)

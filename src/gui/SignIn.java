@@ -7,11 +7,11 @@ import java.io.IOException;
 import model.*;
 import javax.swing.*;
 
-public class SingIn extends Entry_System {
+public class SignIn extends Entry_System {
 	
 	private UsersData datas = new UsersData();
 	
-	SingIn(){
+	SignIn(){
 		super.setTitle("La Tana dei Goblin - Sing In");
 		super.setSize(400,300);
 		super.dataNascita.setVisible(true);
@@ -34,7 +34,7 @@ public class SingIn extends Entry_System {
 							datas.newUser(Username, Password1, author, dataNascita.getText().split(": ")[1]);
 							
 							JOptionPane.showMessageDialog(null, "SUCCESS");
-							SingIn.this.dispose();
+							SignIn.this.dispose();
 						}else
 							JOptionPane.showOptionDialog(null, "Failed: try other credentials or Singing in.", "SingIn Issue", 2, 2, null, null, null);
 						
