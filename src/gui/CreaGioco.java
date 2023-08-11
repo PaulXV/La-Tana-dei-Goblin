@@ -7,10 +7,11 @@ import javax.swing.*;
 
 public class CreaGioco extends JFrame {
 
-	protected JLabel lNome, lDesc, lGioc, lAut, lDate;
+	protected JLabel lNome, lDesc, lGioc, lAut, lDate, lpremi;
 	protected JTextField nome, descrizione, giocatori, dataEdizione;
 	protected MyBtn button, chooseDate;
 	protected JComboBox<String> authors;
+	protected JComboBox<Premio> premi;
 	protected UsersData u = new UsersData();
 	private MyLabel giocoCreato;
 	private PannelloGioco g;
@@ -19,7 +20,7 @@ public class CreaGioco extends JFrame {
 	CreaGioco(PannelloGioco g, String nomeUtente){
 		this.g = g;
 		this.nomeUtente = nomeUtente;
-		this.setSize(400, 400);
+		this.setSize(400, 550);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -82,6 +83,13 @@ public class CreaGioco extends JFrame {
 		} catch (IOException e1) {e1.printStackTrace();}
 		panel.add(authors);
 		
+		lpremi = new JLabel("Che premi ha vinto?");
+		lpremi.setBounds(100, 8, 200, 20);
+		lpremi.setForeground(Style.text_color);
+		premi = new JComboBox(Premio.values());
+		panel.add(lpremi);
+		panel.add(premi);
+		
 		button = new MyBtn("Crea");
 		button.setBounds(100, 110, 90, 25);
 		button.setFont(Style.btn_font_sm);
@@ -93,7 +101,8 @@ public class CreaGioco extends JFrame {
 				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName", true, nomeUtente);
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
-								(giocatori.getText() != null) ? giocatori.getText() : "");
+								(giocatori.getText() != null) ? giocatori.getText() : "",
+										(premi.getSelectedItem() != null) ? (Premio) premi.getSelectedItem() : Premio.NESSUNO);
 				
 				try {
 					done();

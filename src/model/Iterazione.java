@@ -6,7 +6,6 @@ public enum Iterazione
 	COMPETITIVO,
 	SEMICOOPERATIVO;
 	
-	/*
 	Iterazione i;
 	
 	public Iterazione getIterazione() {return i;}
@@ -16,5 +15,6 @@ public enum Iterazione
 		}else {
 			new Exception("Iterazione è null"); 
 		}
-	}*/
+	}
+	
 }

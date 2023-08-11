@@ -1,7 +1,9 @@
 package gui;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class MyLabel extends JLabel implements Style{
 
@@ -13,6 +15,8 @@ public class MyLabel extends JLabel implements Style{
 	private String numMin;
 	public boolean author = false;
 	private String autore;
+	private Premio premio;
+	private String premio2;
 	
 	MyLabel(String title, boolean author, String autore) {
 		this.author = author;
@@ -29,8 +33,8 @@ public class MyLabel extends JLabel implements Style{
 			public void mouseClicked(MouseEvent e) {
 				JFrame info = new JFrame(title);
 				info.setBackground(Style.text_color);
-				info.setLayout(new GridLayout(6,1));
-				info.setSize(400, 400);
+				info.setLayout(new GridLayout(7,1));
+				info.setSize(400, 550);
 				info.setLocationRelativeTo(null);
 				info.setResizable(false);
 				info.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -61,11 +65,17 @@ public class MyLabel extends JLabel implements Style{
 				coAuthor.setForeground(Style.background);
 				coAuthor.setBackground(Style.background);
 				
+				JLabel premi = new JLabel("Premi: " + premio2);
+				premi.setFont(Style.title_font_sm);
+				premi.setForeground(Style.background);
+				premi.setBackground(Style.background);
+				
 				info.add(titolo);
 				info.add(dataCreazione);
 				info.add(descrizione);
 				info.add(numPLYs);
 				info.add(coAuthor);
+				info.add(premi);
 				
 				if(!author) {
 					JLabel buttonContainer = new JLabel();
@@ -90,23 +100,25 @@ public class MyLabel extends JLabel implements Style{
 	
 	public String toString() {
 		return autore + "/"+ title + "/" + data + "/" + desc + "/" + collab + "/"
-				+ numMax + "/" + numMin + " div";
+				+ numMax + "/" + numMin + "/" + premio +" div";
 	}
 
-	public void setOther(String data, String desc, String collab, String numPly) {
+	public void setOther(String data, String desc, String collab, String numPly, Premio premio) {
 		this.data = data;
 		this.desc = desc;
 		this.collab = collab;
 		this.numMax = numPly.split("-")[1];
 		this.numMin = numPly.split("-")[0];
+		this.premio = premio;
 	}
 	
-	public void setOtherv2(String data, String desc, String collab, String max, String min) {
+	public void setOtherv2(String data, String desc, String collab, String max, String min, String premio) {
 		this.data = data;
 		this.desc = desc;
 		this.collab = collab;
 		this.numMax = max;
 		this.numMin = min;
+		this.premio2 = premio;
 	}
 	
 }

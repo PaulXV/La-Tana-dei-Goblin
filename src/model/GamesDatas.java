@@ -11,11 +11,8 @@ public class GamesDatas
 
 	public void newGame(MyLabel giocoDaAggiungere) throws IOException {
 		fw = new FileWriter(path);
-		
 		String scrivi = giocoDaAggiungere.toString();
-		
 		fw.write(scrivi);
-			
 		fw.close();
 	}
 	
