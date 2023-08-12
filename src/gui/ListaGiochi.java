@@ -30,6 +30,15 @@ public class ListaGiochi extends JPanel implements Style{
 		setGameOnTable();
 	}
 	
+	public void removeGame(MyLabel game) {
+		if(giochiCreati.contains(game)) {
+			giochiCreati.remove(game);
+			numRighe = giochiCreati.size() / numColonne + 1;
+			this.setLayout(new GridLayout(numRighe, numColonne));
+			setGameOnTable();
+		}
+	}
+	
 	private void setGameOnTable() {
 		this.removeAll();
 		

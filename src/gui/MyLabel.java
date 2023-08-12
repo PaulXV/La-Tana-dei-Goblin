@@ -20,6 +20,7 @@ public class MyLabel extends JLabel implements Style{
 	private Premio premio;
 	private String premio2;
 	private ListaGiochi listaGiochi;
+	private PannelloGioco pann;
 	
 	MyLabel(String title, boolean author, String autore) {
 		this.author = author;
@@ -96,6 +97,16 @@ public class MyLabel extends JLabel implements Style{
 						}
 					});
 					
+					removeFromList.addMouseListener(new MouseAdapter() {
+						
+						public void mouseClicked(MouseEvent e) {
+							listaGiochi.removeGame(MyLabel.this);
+							
+							try {pann.addGame(MyLabel.this, 1);}
+							catch (IOException e1) {e1.printStackTrace();}
+						}
+					});
+					
 					buttonContainer.add(addToList);
 					buttonContainer.add(removeFromList);
 					info.add(buttonContainer);
@@ -136,4 +147,5 @@ public class MyLabel extends JLabel implements Style{
 	}
 	
 	public void setListaGiochi(ListaGiochi l) {this.listaGiochi = l;}
+	public void setPannelloGioco(PannelloGioco pan) {this.pann = pan;}
 }
