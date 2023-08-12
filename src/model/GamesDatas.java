@@ -9,11 +9,10 @@ public class GamesDatas
 	private FileReader fr;
 	private BufferedReader bufferRead;
 
-	public void newGame(MyLabel giocoDaAggiungere) throws IOException {
-		fw = new FileWriter(path);
-		String scrivi = giocoDaAggiungere.toString();
-		fw.write(scrivi);
-		fw.close();
+	public void appendGame(String giocoDaAppendere) throws IOException {
+		BufferedWriter out = new BufferedWriter(new FileWriter(path, true));
+		out.write(giocoDaAppendere);
+		out.close();
 	}
 	
 	public void appendGame(MyLabel giocoDaAppendere) throws IOException {

@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
@@ -42,6 +43,7 @@ public class PannelloGioco extends JPanel implements Style{
 					if(gioco[0].equals(autore)) {
 						MyLabel newGame = new MyLabel(gioco[1], isAuthor, gioco[0]);
 						newGame.setOtherv2(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7]);
+						newGame.setPannelloGioco(this);
 						addGame(newGame, 1);
 					}
 				}
@@ -49,7 +51,7 @@ public class PannelloGioco extends JPanel implements Style{
 				for(String s : giochiDaCreare) {
 					String[] gioco = s.split("/");
 					MyLabel newGame = new MyLabel(gioco[1], isAuthor, gioco[0]);
-					newGame.setOtherv2(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7] );
+					newGame.setOtherv2(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7]);
 					newGame.setListaGiochi(l);
 					newGame.setPannelloGioco(this);
 					addGame(newGame, 1);
@@ -80,5 +82,40 @@ public class PannelloGioco extends JPanel implements Style{
 		this.revalidate();
 		this.repaint();
 	}
-	
+
+	public void removeGame(MyLabel game) throws IOException {
+		if(giochiCreati.contains(game)) {
+			giochiCreati.remove(game);
+			
+			FileWriter fw = new FileWriter("src/games.txt");
+			fw.write("");
+			fw.close();
+			
+			String[] delete = game.toString().split("/");
+			String allGames = g.getAllGames();
+			String[] temp = allGames.split(" div");
+			String[] dividedGames = new String[temp.length];
+			
+			for(int i=0;i<temp.length;i++)
+				dividedGames[i] = temp[i] + " div";
+			
+			for(String s : dividedGames) {
+				
+				if(delete[0].equals(s.split("/")[0])){
+						if(delete[1].equals(s.split("/")[1]) && delete[2].equals(s.split("/")[2]) && delete[3].equals(s.split("/")[3])) {
+							continue;
+						}else {
+							g.appendGame(s+"\n");
+						}
+						
+				}else {
+					g.appendGame(s+"\n");
+				}
+			}
+				
+			setGameOnTable();
+		}
+		
+	}
+
 }

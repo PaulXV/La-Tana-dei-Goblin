@@ -113,6 +113,16 @@ public class MyLabel extends JLabel implements Style{
 					
 				}else {
 					MyBtn delete = new MyBtn("Delete");
+					
+					delete.addMouseListener(new MouseAdapter() {
+						
+						public void mouseClicked(MouseEvent e) {
+							try {pann.removeGame(MyLabel.this);}
+							catch (IOException e1) {e1.printStackTrace();}
+							info.dispose();
+						}
+					});
+					
 					info.add(delete);
 				}
 				
