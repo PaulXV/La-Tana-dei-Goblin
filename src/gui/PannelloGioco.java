@@ -86,15 +86,11 @@ public class PannelloGioco extends JPanel implements Style{
 	public void removeGame(MyLabel game) throws IOException {
 		if(giochiCreati.contains(game)) {
 			giochiCreati.remove(game);
-			
-			FileWriter fw = new FileWriter("src/games.txt");
-			fw.write("");
-			fw.close();
-			
 			String[] delete = game.toString().split("/");
 			String allGames = g.getAllGames();
 			String[] temp = allGames.split(" div");
 			String[] dividedGames = new String[temp.length];
+			int cnt = 0;
 			
 			for(int i=0;i<temp.length;i++)
 				dividedGames[i] = temp[i] + " div";
@@ -105,11 +101,17 @@ public class PannelloGioco extends JPanel implements Style{
 						if(delete[1].equals(s.split("/")[1]) && delete[2].equals(s.split("/")[2]) && delete[3].equals(s.split("/")[3])) {
 							continue;
 						}else {
-							g.appendGame(s+"\n");
+							if(cnt == 0) {
+								g.appendGame(s+"\n", true); cnt=1;
+							}else
+								g.appendGame(s+"\n", false);
 						}
 						
 				}else {
-					g.appendGame(s+"\n");
+					if(cnt == 0) {
+						g.appendGame(s+"\n", true); cnt=1;
+					}else
+						g.appendGame(s+"\n", false);
 				}
 			}
 				
@@ -117,5 +119,5 @@ public class PannelloGioco extends JPanel implements Style{
 		}
 		
 	}
-
+	
 }
