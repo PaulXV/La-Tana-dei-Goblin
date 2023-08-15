@@ -15,6 +15,28 @@ class DatePick {
         J_Dialog = new JDialog();
         J_Dialog.setModal(true);
         String[] Header = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        
+        //aggiunto da noi per cambiare l'anno più rapidamente
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(1,3));
+        JLabel year = new JLabel("Per inserire un anno diverso dal 2023: ");
+        JTextField text = new JTextField();
+        MyBtn btn = new MyBtn("Inserisci");
+        btn.setFont(Style.btn_font_sm);
+        btn.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent ae) {
+            	if(text.getText() != null && text.getText() != "" && text.getText().charAt(0) != '-') {
+                	DATE_YEAR = Integer.parseInt(text.getText());
+                	Display_Date();
+                }
+            }
+        });
+        
+        panel.add(year);
+        panel.add(text);
+        panel.add(btn);
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        
         JPanel J_Panel1 = new JPanel(new GridLayout(7, 7));
         J_Panel1.setPreferredSize(new Dimension(700, 120));
 
@@ -37,7 +59,8 @@ class DatePick {
             J_Panel1.add(J_Button[i]);
         }
         JPanel J_Panel2 = new JPanel(new GridLayout(1, 3));
-        JButton Previous_Button = new JButton("<< Previous");
+        MyBtn Previous_Button = new MyBtn("<< Previous");
+        Previous_Button.setFont(Style.btn_font_sm);
         Previous_Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 DATE_MONTH--;
@@ -46,14 +69,17 @@ class DatePick {
         });
         J_Panel2.add(Previous_Button);
         J_Panel2.add(J_Label);
-        JButton Next_Button = new JButton("Next >>");
+        MyBtn Next_Button = new MyBtn("Next >>");
+        Next_Button.setFont(Style.btn_font_sm);
         Next_Button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 DATE_MONTH++;
                 Display_Date();
             }
         });
+        
         J_Panel2.add(Next_Button);
+        J_Dialog.add(panel, BorderLayout.NORTH);
         J_Dialog.add(J_Panel1, BorderLayout.CENTER);
         J_Dialog.add(J_Panel2, BorderLayout.SOUTH);
         J_Dialog.pack();
