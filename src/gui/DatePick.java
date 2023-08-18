@@ -3,9 +3,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class DatePick {
+class DatePick implements Style{
     int DATE_MONTH = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH);
-    int DATE_YEAR = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);;
+    int DATE_YEAR = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
     JLabel J_Label = new JLabel("", JLabel.CENTER);
     String DATE_DAY = "";
     JDialog J_Dialog;
@@ -16,7 +16,7 @@ class DatePick {
         J_Dialog.setModal(true);
         String[] Header = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
         
-        //aggiunto da noi per cambiare l'anno più rapidamente
+        //aggiunto da noi per cambiare l'anno più rapidamente //////////////////////////////////////////
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1,3));
         JLabel year = new JLabel("Per inserire un anno diverso dal 2023: ");

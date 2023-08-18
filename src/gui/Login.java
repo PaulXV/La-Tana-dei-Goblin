@@ -48,7 +48,9 @@ public class Login extends Entry_System{
 		if(isAuthor.isSelected()) {
 			Author a = new Author(panel, username.getText(), (JFrame) this.getFrames()[0]);
 		}else {
-			Player p = new Player(panel, username.getText(), (JFrame) this.getFrames()[0]);
+			Player p = new Player( panel, username.getText(),
+					datas.getBirthdate(username.getText(), Password.getText()),
+					(JFrame) this.getFrames()[0] );
 		}
 	}
 }

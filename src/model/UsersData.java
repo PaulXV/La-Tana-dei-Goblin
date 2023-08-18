@@ -17,7 +17,7 @@ public class UsersData
 	public boolean getUserEsistente(String nomeUtente, String password, boolean isAuthor) throws IOException {
 		
 		fr = new FileReader(path);
-		bufferRead  = new BufferedReader(fr);;
+		bufferRead  = new BufferedReader(fr);
 		String riga;
 		boolean res = false;
 		riga = bufferRead.readLine();
@@ -84,14 +84,42 @@ public class UsersData
 			}
 		}
 		
-		s = new String[cnt]; //metto la nuova dimensione a s per evitare errori con null o spazi vuoti
+		s = new String[cnt+1]; //metto la nuova dimensione a s per evitare errori con null o spazi vuoti
 		
 		for(int i=0; i<cnt; i++) {
 			s[i] = temp.split("/")[i];
 		}
-		
+		s[s.length-1] = " -- ";
 		return s;
 		
+	}
+	
+	public String getBirthdate(String nomeUtente, String password) throws IOException {
+		
+		String s = "";
+		
+		fr = new FileReader(path);
+		bufferRead  = new BufferedReader(fr);
+		String riga;
+		riga = bufferRead.readLine();
+		
+		while(!riga.isEmpty())
+		{	
+			String[] login = riga.split("/");
+			String username = login[0];
+			String passw = login[1];
+			
+			if(username.equals(nomeUtente) && passw.equals(password)){
+				s = login[3].split("-")[2].split(" ")[0];
+			}
+			
+			riga = bufferRead.readLine();
+			if(riga == null)
+				break;
+		}
+
+		
+		return s;
 	}
 	
 }

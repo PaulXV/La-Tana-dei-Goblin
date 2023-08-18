@@ -47,6 +47,7 @@ public class Entry_System extends JFrame implements Style{
 		isAuthor = new JCheckBox("Author", true);
 		isAuthor.setVisible(true);
 		isAuthor.setFocusable(false);
+		isAuthor.setHorizontalAlignment(0);
 		isAuthor.setForeground(Style.text_color);
 		isAuthor.setMnemonic(KeyEvent.VK_C);
 		isAuthor.setBackground(Style.background);

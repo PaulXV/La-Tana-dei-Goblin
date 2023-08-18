@@ -11,9 +11,8 @@ public class Player {
 	private String nomeUtente;
 	private JFrame frame = new JFrame();
 	
-	public Player(JPanel jPanel, String nome, JFrame frame) throws IOException {
+	public Player(JPanel jPanel, String nome, String birthDate, JFrame frame) throws IOException {
 		this.frame = frame;
-		
 		//serve per cancellare gli elementi di MenuGui e aggiornare il panel in modo che sia vuoto
 		this.pannello = jPanel;
 		this.nomeUtente = nome;
@@ -44,7 +43,7 @@ public class Player {
 		
 		ListaGiochi lista = new ListaGiochi();
 		lista.setVisible(true);
-		PannelloGioco areaGiochi = new PannelloGioco(false, "", lista);
+		PannelloGioco areaGiochi = new PannelloGioco(false, "", birthDate, lista);
 		areaGiochi.setVisible(true);
 		
 		container.add(areaGiochi, BorderLayout.CENTER);

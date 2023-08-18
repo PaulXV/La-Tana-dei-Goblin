@@ -41,7 +41,7 @@ public class SignIn extends Entry_System {
 					}catch (HeadlessException e1){}
 					catch (IOException e1) {e1.printStackTrace();}
 				}else
-					JOptionPane.showOptionDialog(null, "Failed: try other credentials or Singing in.", "SingIn Issue", 2, 2, null, null, null);
+					JOptionPane.showOptionDialog(null, "Failed: try other credentials or Log in.", "SingIn Issue", 2, 2, null, null, null);
 			}
 		});
 		

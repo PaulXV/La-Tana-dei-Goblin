@@ -16,6 +16,7 @@ public class MyLabel extends JLabel implements Style{
 	private String numMax;
 	private String numMin;
 	private boolean author = false;
+	private boolean isMaggiorenne = false;
 	private String autore;
 	private Premio premio;
 	private String premio2;
@@ -38,7 +39,7 @@ public class MyLabel extends JLabel implements Style{
 			public void mouseClicked(MouseEvent e) {
 				JFrame info = new JFrame(title);
 				info.setBackground(Style.text_color);
-				info.setLayout(new GridLayout(7,1));
+				info.setLayout(new GridLayout(0,1));
 				info.setSize(400, 550);
 				info.setLocationRelativeTo(null);
 				info.setResizable(false);
@@ -65,6 +66,11 @@ public class MyLabel extends JLabel implements Style{
 				numPLYs.setForeground(Style.background);
 				numPLYs.setBackground(Style.background);
 				
+				JLabel isMax = new JLabel("E' per maggiorenni: " + ((isMaggiorenne) ? "SI" : "NO") );
+				isMax.setFont(Style.title_font_sm);
+				isMax.setForeground(Style.background);
+				isMax.setBackground(Style.background);
+				
 				JLabel coAuthor = new JLabel("Autore " + autore + ", collab di: " + collab);
 				coAuthor.setFont(Style.title_font_sm);
 				coAuthor.setForeground(Style.background);
@@ -79,6 +85,7 @@ public class MyLabel extends JLabel implements Style{
 				info.add(dataCreazione);
 				info.add(descrizione);
 				info.add(numPLYs);
+				info.add(isMax);
 				info.add(coAuthor);
 				info.add(premi);
 				
@@ -135,25 +142,30 @@ public class MyLabel extends JLabel implements Style{
 	
 	public String toString() {
 		return autore + "/"+ title + "/" + data + "/" + desc + "/" + collab + "/"
-				+ numMax + "/" + numMin + "/" + premio +" div";
+				+ numMax + "/" + numMin + "/" + premio + "/" + isMaggiorenne + " div";
 	}
 
-	public void setOther(String data, String desc, String collab, String numPly, Premio premio) {
+	public void setOther(String data, String desc, String collab, String numPly, Premio premio, boolean isMaggiorenne) {
 		this.data = data;
 		this.desc = desc;
 		this.collab = collab;
 		this.numMax = numPly.split("-")[1];
 		this.numMin = numPly.split("-")[0];
 		this.premio = premio;
+		this.isMaggiorenne = isMaggiorenne;
 	}
 	
-	public void setOtherv2(String data, String desc, String collab, String max, String min, String premio) {
+	public void setOtherv2(String data, String desc, String collab, String max, String min, String premio, String isMaggiorenne) {
 		this.data = data;
 		this.desc = desc;
 		this.collab = collab;
 		this.numMax = max;
 		this.numMin = min;
 		this.premio2 = premio;
+		if(isMaggiorenne.equals("false"))
+			this.isMaggiorenne = false;
+		else if(isMaggiorenne.equals("true"))
+			this.isMaggiorenne = true;
 	}
 	
 	public void setListaGiochi(ListaGiochi l) {this.listaGiochi = l;}

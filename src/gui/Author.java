@@ -43,7 +43,7 @@ public class Author{
 		container.setBackground(Style.background);
 		container.setLayout(new BorderLayout());
 		
-		PannelloGioco areaGiochi = new PannelloGioco(true, nome, null);
+		PannelloGioco areaGiochi = new PannelloGioco(true, nome, null, null);
 		areaGiochi.setVisible(true);
 		container.add(areaGiochi, BorderLayout.CENTER);
 		

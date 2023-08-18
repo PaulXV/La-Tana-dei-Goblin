@@ -12,6 +12,8 @@ public class CreaGioco extends JFrame {
 	protected MyBtn button, chooseDate;
 	protected JComboBox<String> authors;
 	protected JComboBox<Premio> premi;
+	protected JCheckBox maggiorenne;
+	protected boolean isMaggiorenne = false;
 	protected UsersData u = new UsersData();
 	private MyLabel giocoCreato;
 	private PannelloGioco g;
@@ -83,6 +85,23 @@ public class CreaGioco extends JFrame {
 		} catch (IOException e1) {e1.printStackTrace();}
 		panel.add(authors);
 		
+		maggiorenne = new JCheckBox("18+ ?", false);
+		maggiorenne.setVisible(true);
+		maggiorenne.setFocusable(false);
+		maggiorenne.setHorizontalAlignment(0);
+		maggiorenne.setForeground(Style.text_color);
+		maggiorenne.setMnemonic(KeyEvent.VK_C);
+		maggiorenne.setBackground(Style.background);
+		maggiorenne.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				isMaggiorenne = false;
+				if (e.getStateChange() == ItemEvent.DESELECTED)
+					isMaggiorenne = true;
+			}
+		});
+		
+		panel.add(maggiorenne);
+		
 		lpremi = new JLabel("Che premi ha vinto?");
 		lpremi.setBounds(100, 8, 200, 20);
 		lpremi.setForeground(Style.text_color);
@@ -102,7 +121,7 @@ public class CreaGioco extends JFrame {
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "",
-										(premi.getSelectedItem() != null) ? (Premio) premi.getSelectedItem() : Premio.NESSUNO);
+										(premi.getSelectedItem() != null) ? (Premio) premi.getSelectedItem() : Premio.NESSUNO, isMaggiorenne);
 				
 				try {
 					done();
