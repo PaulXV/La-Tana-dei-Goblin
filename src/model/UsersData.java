@@ -72,7 +72,7 @@ public class UsersData
 		else{
 			while(!riga.isEmpty())
 			{
-				if(riga.split("/")[2].equals("a div")) {
+				if(riga.split("/")[2].equals("a")) {
 					String username = riga.split("/")[0];
 					temp += username + "/";
 					cnt++;

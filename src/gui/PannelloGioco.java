@@ -42,7 +42,7 @@ public class PannelloGioco extends JPanel implements Style{
 					String[] gioco = s.split("/");
 					if(gioco[0].equals(autore)) {
 						MyLabel newGame = new MyLabel(gioco[1], isAuthor, gioco[0]);
-						newGame.setOtherv2(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7], gioco[8]);
+						newGame.setOther(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7], gioco[8], gioco[9]);
 						newGame.setPannelloGioco(this);
 						addGame(newGame, 1);
 					}
@@ -68,7 +68,7 @@ public class PannelloGioco extends JPanel implements Style{
 	
 	private void insertGame(String[] gioco) throws IOException {
 		MyLabel newGame = new MyLabel(gioco[1], isAuthor, gioco[0]);
-		newGame.setOtherv2(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7], gioco[8]);
+		newGame.setOther(gioco[2], gioco[3], gioco[4], gioco[5], gioco[6], gioco[7], gioco[8], gioco[9]);
 		newGame.setListaGiochi(l);
 		newGame.setPannelloGioco(this);
 		addGame(newGame, 1);

@@ -20,6 +20,8 @@ public class MyLabel extends JLabel implements Style{
 	private String autore;
 	private Premio premio;
 	private String premio2;
+	private String iter2;
+	private Iterazione iter;
 	private ListaGiochi listaGiochi;
 	private PannelloGioco pann;
 	
@@ -40,7 +42,7 @@ public class MyLabel extends JLabel implements Style{
 				JFrame info = new JFrame(title);
 				info.setBackground(Style.text_color);
 				info.setLayout(new GridLayout(0,1));
-				info.setSize(400, 550);
+				info.setSize(400, 600);
 				info.setLocationRelativeTo(null);
 				info.setResizable(false);
 				info.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -61,6 +63,11 @@ public class MyLabel extends JLabel implements Style{
 				descrizione.setForeground(Style.background);
 				descrizione.setBackground(Style.background);
 				
+				JLabel iterazione = new JLabel("Iterazione: " + ((iter2 != null) ? iter2 : (iter != null) ? iter : "Non disponibile"));
+				iterazione.setFont(Style.title_font_sm);
+				iterazione.setForeground(Style.background);
+				iterazione.setBackground(Style.background);
+				
 				JLabel numPLYs = new JLabel("Numero di giocatori (min-max): " + numMin + "-" + numMax);
 				numPLYs.setFont(Style.title_font_sm);
 				numPLYs.setForeground(Style.background);
@@ -76,7 +83,7 @@ public class MyLabel extends JLabel implements Style{
 				coAuthor.setForeground(Style.background);
 				coAuthor.setBackground(Style.background);
 				
-				JLabel premi = new JLabel("Premi: " + premio2);
+				JLabel premi = new JLabel("Premi: " + ((premio2 != null) ? premio2 : (premio != null) ? premio : "Non disponibile"));
 				premi.setFont(Style.title_font_sm);
 				premi.setForeground(Style.background);
 				premi.setBackground(Style.background);
@@ -84,6 +91,7 @@ public class MyLabel extends JLabel implements Style{
 				info.add(titolo);
 				info.add(dataCreazione);
 				info.add(descrizione);
+				info.add(iterazione);
 				info.add(numPLYs);
 				info.add(isMax);
 				info.add(coAuthor);
@@ -142,10 +150,10 @@ public class MyLabel extends JLabel implements Style{
 	
 	public String toString() {
 		return autore + "/"+ title + "/" + data + "/" + desc + "/" + collab + "/"
-				+ numMax + "/" + numMin + "/" + premio + "/" + isMaggiorenne + " div";
+				+ numMax + "/" + numMin + "/" + premio + "/" + isMaggiorenne + "/" + iter + " div";
 	}
 
-	public void setOther(String data, String desc, String collab, String numPly, Premio premio, boolean isMaggiorenne) {
+	public void setOther(String data, String desc, String collab, String numPly, Premio premio, boolean isMaggiorenne, Iterazione iter) {
 		this.data = data;
 		this.desc = desc;
 		this.collab = collab;
@@ -153,9 +161,10 @@ public class MyLabel extends JLabel implements Style{
 		this.numMin = numPly.split("-")[0];
 		this.premio = premio;
 		this.isMaggiorenne = isMaggiorenne;
+		this.iter = iter;
 	}
 	
-	public void setOtherv2(String data, String desc, String collab, String max, String min, String premio, String isMaggiorenne) {
+	public void setOther(String data, String desc, String collab, String max, String min, String premio, String isMaggiorenne, String iter2) {
 		this.data = data;
 		this.desc = desc;
 		this.collab = collab;
@@ -166,6 +175,7 @@ public class MyLabel extends JLabel implements Style{
 			this.isMaggiorenne = false;
 		else if(isMaggiorenne.equals("true"))
 			this.isMaggiorenne = true;
+		this.iter2 = iter2;
 	}
 	
 	public void setListaGiochi(ListaGiochi l) {this.listaGiochi = l;}

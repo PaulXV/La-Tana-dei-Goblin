@@ -7,11 +7,12 @@ import javax.swing.*;
 
 public class CreaGioco extends JFrame {
 
-	protected JLabel lNome, lDesc, lGioc, lAut, lDate, lpremi;
+	protected JLabel lNome, lDesc, lGioc, lAut, lDate, lpremi, liter;
 	protected JTextField nome, descrizione, giocatori, dataEdizione;
 	protected MyBtn button, chooseDate;
 	protected JComboBox<String> authors;
 	protected JComboBox<Premio> premi;
+	protected JComboBox<Iterazione> iterazioni;
 	protected JCheckBox maggiorenne;
 	protected boolean isMaggiorenne = false;
 	protected UsersData u = new UsersData();
@@ -22,7 +23,7 @@ public class CreaGioco extends JFrame {
 	CreaGioco(PannelloGioco g, String nomeUtente){
 		this.g = g;
 		this.nomeUtente = nomeUtente;
-		this.setSize(400, 550);
+		this.setSize(400, 600);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -67,12 +68,19 @@ public class CreaGioco extends JFrame {
 		panel.add(dataEdizione);
 		panel.add(chooseDate);
 		
+		liter = new JLabel("Che tipo di iterazione?");
+		liter.setBounds(100, 8, 200, 20);
+		liter.setForeground(Style.text_color);
+		iterazioni = new JComboBox(Iterazione.values());
+		panel.add(liter);
+		panel.add(iterazioni);
+		
 		lGioc = new JLabel("Numero di giocatori (nMin - nMax) :");
 		lGioc.setBounds(100, 8, 200, 20);
 		lGioc.setForeground(Style.text_color);
 		panel.add(lGioc);
 		giocatori = new JTextField();
-		giocatori.setBounds(100, 27, 200, 28);
+		giocatori.setBounds(100, 27, 100, 28);
 		giocatori.setBorder(null);
 		panel.add(giocatori);
 		
@@ -121,7 +129,7 @@ public class CreaGioco extends JFrame {
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "",
-										(premi.getSelectedItem() != null) ? (Premio) premi.getSelectedItem() : Premio.NESSUNO, isMaggiorenne);
+										(premi.getSelectedItem() != null) ? (Premio) premi.getSelectedItem() : Premio.NESSUNO, isMaggiorenne, (Iterazione) iterazioni.getSelectedItem());
 				
 				try {
 					done();
