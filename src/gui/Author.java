@@ -23,7 +23,7 @@ public class Author{
 		pannello.setLayout(new BorderLayout());
 		
 		//da qui si modella la nuova schermata
-		JLabel title = new JLabel("Eccoci " + nomeUtente.toLowerCase() + "!");
+		JLabel title = new JLabel("Eccoci " + nomeUtente + "!");
 		title.setFont(Style.title_font_h2);
 		title.setForeground(Style.text_color);
 		title.setHorizontalAlignment(0);
@@ -42,16 +42,15 @@ public class Author{
 		
 		JPanel panDx = new JPanel();
 		panDx.setBackground(Style.background);
-		JLabel testo = new JLabel("Premi vinti: " + g.getNumPremiVinti(nome));
-		testo.setForeground(Style.text_color);
-		panDx.add(testo);
-		
+		JLabel premi = new JLabel("Premi vinti: " + g.getNumPremiVinti(nome));
+		premi.setForeground(Style.text_color);
+		panDx.add(premi);
 		
 		JPanel container = new JPanel();
 		container.setBackground(Style.background);
 		container.setLayout(new BorderLayout());
 		
-		PannelloGioco areaGiochi = new PannelloGioco(true, nome, null, null);
+		PannelloGioco areaGiochi = new PannelloGioco(true, nome, null, null, premi);
 		areaGiochi.setVisible(true);
 		container.add(areaGiochi, BorderLayout.CENTER);
 		
@@ -60,7 +59,6 @@ public class Author{
 		
 		createButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				
 				CreaGioco newGioco = new CreaGioco(areaGiochi, nomeUtente);
 				pannello.repaint();
 			}
@@ -74,6 +72,6 @@ public class Author{
 		pannello.add(container, BorderLayout.CENTER);
 		pannello.add(title, BorderLayout.NORTH);
 		pannello.setVisible(true);
-		
 	}
+
 }

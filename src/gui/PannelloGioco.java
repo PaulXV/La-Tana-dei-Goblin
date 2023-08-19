@@ -13,12 +13,16 @@ public class PannelloGioco extends JPanel implements Style{
 	private ArrayList<MyLabel> giochiCreati = new ArrayList<MyLabel>();
 	private int numColonne = 3;
 	private int numRighe;
+	private String autore;
 	private boolean isAuthor;
+	private JLabel premi;
 	private GamesDatas g = new GamesDatas();
 	private ListaGiochi l = new ListaGiochi();
 	
-	public PannelloGioco(boolean isAuthor, String autore, String dataNascitaAutore, ListaGiochi l) throws IOException {
+	public PannelloGioco(boolean isAuthor, String autore, String dataNascitaAutore, ListaGiochi l, JLabel premi) throws IOException {
 		this.isAuthor = isAuthor;
+		this.premi = premi;
+		this.autore = autore;
 		Border border = BorderFactory.createTitledBorder("Giochi creati");
 		Border brd = BorderFactory.createTitledBorder(border, "Giochi creati", 0, 0, btn_font_sm);
 		Border border2 = BorderFactory.createEmptyBorder(10,10,10,10);
@@ -85,8 +89,10 @@ public class PannelloGioco extends JPanel implements Style{
 		setGameOnTable();
 	}
 	
-	private void setGameOnTable() {
+	private void setGameOnTable() throws IOException {
 		this.removeAll();
+		
+		if(premi != null) premi.setText("Premi vinti: " + g.getNumPremiVinti(autore));
 		
 		for(MyLabel l : giochiCreati)
 			this.add(l);

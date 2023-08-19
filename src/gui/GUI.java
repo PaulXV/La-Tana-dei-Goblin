@@ -14,7 +14,7 @@ public class GUI extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		MenuGui m = new MenuGui();
-		this.add( m, BorderLayout.CENTER);
+		this.add(m, BorderLayout.CENTER);
 		
 		this.setVisible(true);
 	}

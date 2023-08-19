@@ -43,7 +43,7 @@ public class Player {
 		
 		ListaGiochi lista = new ListaGiochi();
 		lista.setVisible(true);
-		PannelloGioco areaGiochi = new PannelloGioco(false, "", birthDate, lista);
+		PannelloGioco areaGiochi = new PannelloGioco(false, "", birthDate, lista, null);
 		areaGiochi.setVisible(true);
 		
 		container.add(areaGiochi, BorderLayout.CENTER);
