@@ -47,5 +47,22 @@ public class GamesDatas
 		}
 		return s;
 	}
+
+	public int getNumPremiVinti(String nome) throws IOException {
+		int premiVinti = 0;
+		
+		String[] games = getAllGames().split(" div");
+		
+		for(String s : games) {
+			String[] info = s.split("/");
+			if(info[0].equals(nome)) {
+				if(!info[7].equals("NESSUNO")) {
+					premiVinti ++;
+				}
+			}
+		}
+		
+		return premiVinti;
+	}
 	
 }
