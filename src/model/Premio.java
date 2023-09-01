@@ -1,5 +1,11 @@
 package model;
 
-public class Premio {
-
+public enum Premio
+{
+	NESSUNO,
+	PRIMO_POSTO,
+	SECONDO_POSTO,
+	TERZO_POSTO,
+	GIOCO_DEFINITIVO,
+	GIOCO_DELL_ANNO;
 }

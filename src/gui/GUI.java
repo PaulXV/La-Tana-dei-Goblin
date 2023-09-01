@@ -5,7 +5,7 @@ import model.*;
 
 public class GUI extends JFrame{
 
-	GUI(){
+	public GUI(){
 		this.setLayout(new BorderLayout());
 		this.setTitle("La Tana dei Goblin"); //TODO
 		this.setSize(1200, 800);
@@ -14,7 +14,7 @@ public class GUI extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		MenuGui m = new MenuGui();
-		this.add( m, BorderLayout.CENTER);
+		this.add(m, BorderLayout.CENTER);
 		
 		this.setVisible(true);
 	}

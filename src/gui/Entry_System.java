@@ -6,15 +6,15 @@ import javax.swing.*;
 
 public class Entry_System extends JFrame implements Style{
 
-	protected JLabel password_text, label;
+	protected JLabel password_text, label, dataNascita;
 	protected JTextField username;
-	protected JButton button;
+	protected MyBtn button, chooseDate;
 	protected JPasswordField Password;
 	protected boolean isAuthorChecked;
 	protected JCheckBox isAuthor;
 	
 	Entry_System(){
-		this.setSize(400, 250);
+		this.setSize(400, 300);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -47,6 +47,7 @@ public class Entry_System extends JFrame implements Style{
 		isAuthor = new JCheckBox("Author", true);
 		isAuthor.setVisible(true);
 		isAuthor.setFocusable(false);
+		isAuthor.setHorizontalAlignment(0);
 		isAuthor.setForeground(Style.text_color);
 		isAuthor.setMnemonic(KeyEvent.VK_C);
 		isAuthor.setBackground(Style.background);
@@ -60,16 +61,24 @@ public class Entry_System extends JFrame implements Style{
 		
 		panel.add(isAuthor);
 		
-		button = new JButton("Login");
-		button.setFocusable(false);
-		button.setBounds(100, 110, 90, 25);
-		button.setForeground(Style.text_color);
-		button.setBackground(Style.background);
-		button.setFont(Style.btn_font_sm);
+		dataNascita = new JLabel("Inserisci la tua data di nascita:");
+		dataNascita.setBounds(100, 55, 200, 20);
+		dataNascita.setForeground(Style.text_color);
+		dataNascita.setBorder(null);
+		dataNascita.setVisible(false);
+		chooseDate = new MyBtn(" + ");
+		chooseDate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+            	dataNascita.setText("Data di nascita: " + new DatePick(Entry_System.this).Set_Picked_Date());
+            }
+        });
+		chooseDate.setVisible(false);
+		panel.add(dataNascita);
+		panel.add(chooseDate);
 		
-		button.setBorder(Style.border);
-		button.setCursor(Style.pointer);
-		button.setRolloverEnabled(true);
+		button = new MyBtn("Login");
+		button.setBounds(100, 110, 90, 25);
+		button.setFont(Style.btn_font_sm);
 		panel.add(button);
 		
 		this.add(panel);

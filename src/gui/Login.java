@@ -12,6 +12,7 @@ public class Login extends Entry_System{
 	private JPanel panel = new JPanel();
 	
 	Login(){
+		
 		super.setTitle("La Tana dei Goblin - Login");
 		
 		button.addActionListener(new ActionListener() {
@@ -22,12 +23,12 @@ public class Login extends Entry_System{
 				boolean author = isAuthor.isSelected();
 				
 				try {
-					if(datas.getUserEsistente(Username, Password1)) {
+					if(datas.getUserEsistente(Username, Password1, author)) {
 						JOptionPane.showMessageDialog(null, "Login Successful");
 						done();
 					}else
-						JOptionPane.showMessageDialog(null, "Failed: try other credentials or Singing in.");
-					
+						JOptionPane.showOptionDialog(null, "Failed: try other credentials or Singing in.", "Login Issue", 2, 2, null, null, null);
+						
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -40,14 +41,16 @@ public class Login extends Entry_System{
 	
 	public void setPanel(JPanel panel) {this.panel = panel;}
 	
-	public void done(){
+	public void done() throws IOException{
 		
 		this.dispose();
-		
+		panel.setVisible(false);
 		if(isAuthor.isSelected()) {
-			Author a = new Author(panel);
+			Author a = new Author(panel, username.getText(), (JFrame) this.getFrames()[0]);
 		}else {
-			Player p = new Player(panel);
+			Player p = new Player( panel, username.getText(),
+					datas.getBirthdate(username.getText(), Password.getText()),
+					(JFrame) this.getFrames()[0] );
 		}
 	}
 }
