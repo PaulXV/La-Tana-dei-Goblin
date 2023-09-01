@@ -15,13 +15,18 @@ public class MyLabel extends JLabel implements Style{
 	private String collab;
 	private String numMax;
 	private String numMin;
+	private String autore;
+	
 	private boolean author = false;
 	private boolean isMaggiorenne = false;
-	private String autore;
+	private boolean isOnList = false;
+	
 	private Premio premio;
 	private String premio2;
-	private String iter2;
+	
 	private Iterazione iter;
+	private String iter2;
+	
 	private ListaGiochi listaGiochi;
 	private PannelloGioco pann;
 	
@@ -103,25 +108,41 @@ public class MyLabel extends JLabel implements Style{
 					MyBtn addToList = new MyBtn("Add Game");
 					MyBtn removeFromList = new MyBtn("Remove Game");
 					
+					if(isOnList)
+						addToList.setEnabled(false);
+					else
+						addToList.setEnabled(true);
+					
+					if(listaGiochi.hasGame(MyLabel.this))
+						removeFromList.setEnabled(true);
+					else
+						removeFromList.setEnabled(false);
+					
 					addToList.addMouseListener(new MouseAdapter() {
 						
 						public void mouseClicked(MouseEvent e){
-							try {
-								listaGiochi.addGame(MyLabel.this);
-							} catch (IOException e1) {e1.printStackTrace();}
-						}
-					});
-					
-					removeFromList.addMouseListener(new MouseAdapter() {
-						
-						public void mouseClicked(MouseEvent e) {
-							listaGiochi.removeGame(MyLabel.this);
-							
-							try {pann.addGame(MyLabel.this, 1);}
+							try {listaGiochi.addGame(MyLabel.this);
+								isOnList = true;
+								info.dispose();
+							}
 							catch (IOException e1) {e1.printStackTrace();}
 						}
 					});
 					
+					if(removeFromList.isEnabled()) {
+						removeFromList.addMouseListener(new MouseAdapter() {
+							
+							public void mouseClicked(MouseEvent e) {
+								listaGiochi.removeGame(MyLabel.this);
+								
+								try {pann.addGame(MyLabel.this, 1);
+									isOnList = false;
+									info.dispose();
+								}
+								catch (IOException e1) {e1.printStackTrace();}
+							}
+						});
+					}
 					buttonContainer.add(addToList);
 					buttonContainer.add(removeFromList);
 					info.add(buttonContainer);
