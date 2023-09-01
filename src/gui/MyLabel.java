@@ -158,15 +158,11 @@ public class MyLabel extends JLabel implements Style{
 							info.dispose();
 						}
 					});
-					
 					info.add(delete);
 				}
-				
 				info.setVisible(true);
 			}
-			
 		});
-		
 	}
 	
 	public String toString() {
@@ -201,4 +197,5 @@ public class MyLabel extends JLabel implements Style{
 	
 	public void setListaGiochi(ListaGiochi l) {this.listaGiochi = l;}
 	public void setPannelloGioco(PannelloGioco pan) {this.pann = pan;}
+	
 }

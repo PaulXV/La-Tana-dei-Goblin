@@ -1,6 +1,6 @@
+paolo/stelle cadenti/10-08-2023/occhio alla testa/marco/4/1/TERZO_POSTO/true/COOPERATIVO div
 marco/gioco2/01-08-2023/bellissimo/lucavax/2/1/GIOCO_DEFINITIVO/false/COOPERATIVO div
 lucavax/gioco3/01-08-2023/stupendo/marco/2/1/SECONDO_POSTO/false/COMPETITIVO div
 paolo/gioco4/07-08-2023/maestoso/lucavax/6/1/PRIMO_POSTO/false/SEMICOOPERATIVO div
 marco/gioco5/02-08-2023/utopico/paolo/8/4/NESSUNO/false/SEMICOOPERATIVO div
 paolo/gioco/01-01-2019/orrendo/marco/10/100/NESSUNO/true/COMPETITIVO div
-paolo/stelle cadenti/10-08-2023/occhio alla testa/marco/4/1/TERZO_POSTO/true/COOPERATIVO div

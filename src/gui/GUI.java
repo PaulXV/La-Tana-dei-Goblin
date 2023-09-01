@@ -1,13 +1,12 @@
 package gui;
 import java.awt.*;
 import javax.swing.*;
-import model.*;
 
 public class GUI extends JFrame{
 
 	public GUI(){
 		this.setLayout(new BorderLayout());
-		this.setTitle("La Tana dei Goblin"); //TODO
+		this.setTitle("La Tana dei Goblin");
 		this.setSize(1200, 800);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);

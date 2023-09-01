@@ -7,15 +7,15 @@ import javax.swing.*;
 
 public class CreaGioco extends JFrame {
 
-	protected JLabel lNome, lDesc, lGioc, lAut, lDate, lpremi, liter;
-	protected JTextField nome, descrizione, giocatori, dataEdizione;
-	protected MyBtn button, chooseDate;
-	protected JComboBox<String> authors;
-	protected JComboBox<Premio> premi;
-	protected JComboBox<Iterazione> iterazioni;
-	protected JCheckBox maggiorenne;
-	protected boolean isMaggiorenne = false;
-	protected UsersData u = new UsersData();
+	private JLabel lNome, lDesc, lGioc, lAut, lDate, lpremi, liter;
+	private JTextField nome, descrizione, giocatori, dataEdizione;
+	private MyBtn button, chooseDate;
+	private JComboBox<String> authors;
+	private JComboBox<Premio> premi;
+	private JComboBox<Iterazione> iterazioni;
+	private JCheckBox maggiorenne;
+	private boolean isMaggiorenne = false;
+	private UsersData u = new UsersData();
 	private MyLabel giocoCreato;
 	private PannelloGioco g;
 	private String nomeUtente;

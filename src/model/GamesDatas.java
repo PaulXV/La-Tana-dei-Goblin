@@ -5,7 +5,6 @@ import gui.*;
 public class GamesDatas
 {
 	private String path = "src/games.txt";
-	private FileWriter fw;
 	private FileReader fr;
 	private BufferedReader bufferRead;
 

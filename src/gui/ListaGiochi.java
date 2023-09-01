@@ -39,9 +39,7 @@ public class ListaGiochi extends JPanel implements Style{
 		}
 	}
 	
-	public boolean hasGame(MyLabel gioco){
-		return giochiCreati.contains(gioco);
-	}
+	public boolean hasGame(MyLabel gioco)	{return giochiCreati.contains(gioco);}
 	
 	private void setGameOnTable() {
 		this.removeAll();

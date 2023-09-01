@@ -58,7 +58,7 @@ public class PannelloGioco extends JPanel implements Style{
 					if(gioco[8].equals("true")) {
 						int annoNascitaAutore = Integer.parseInt(dataNascitaAutore);
 						int annoAttuale = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
-						if( annoAttuale - annoNascitaAutore < 18) {
+						if(annoAttuale - annoNascitaAutore < 18) {
 							continue;
 						}else {insertGame(gioco);}
 						

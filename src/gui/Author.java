@@ -10,11 +10,11 @@ public class Author{
 
 	private JPanel pannello = new JPanel();
 	private String nomeUtente;
-	private JFrame frame = new JFrame();
+	private JFrame frame;
 	private GamesDatas g = new GamesDatas();
 	
 	Author(JPanel jPanel, String nome, JFrame jFrame) throws IOException{
-		this.frame = frame;
+		this.frame = jFrame;
 		
 		//serve per cancellare gli elementi di MenuGui e aggiornare il panel in modo che sia vuoto
 		this.pannello = jPanel;
@@ -56,13 +56,12 @@ public class Author{
 		
 		MyBtn createButton = new MyBtn("Crea gioco");
 		createButton.setFont(Style.btn_font_sm);
-		
+
 		createButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				CreaGioco newGioco = new CreaGioco(areaGiochi, nomeUtente);
 				pannello.repaint();
 			}
-			
 		});
 		
 		container.add(createButton, BorderLayout.NORTH);
