@@ -15,7 +15,7 @@ public class SignIn extends Entry_System {
 		super.setTitle("La Tana dei Goblin - Sing In");
 		super.setSize(400,300);
 		super.dataNascita.setVisible(true);
-		super.chooseDate.setVisible(true);;
+		super.chooseDate.setVisible(true);
 		
 		button.setText("Sing In");
 		

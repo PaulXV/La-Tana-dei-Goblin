@@ -25,7 +25,9 @@ class DatePick implements Style{
         btn.setFont(Style.btn_font_sm);
         btn.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent ae) {
-            	if(text.getText() != null && text.getText() != "" && text.getText().charAt(0) != '-') {
+            	if(text.getText() != null && text.getText() != ""
+            			&& text.getText().charAt(0) != '-'
+            			&& java.util.Calendar.getInstance().get(java.util.Calendar.YEAR) - Integer.parseInt(text.getText()) <= 100 ) {
                 	DATE_YEAR = Integer.parseInt(text.getText());
                 	Display_Date();
                 }
