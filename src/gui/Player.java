@@ -31,7 +31,7 @@ public class Player {
 			
 			public void mouseClicked(MouseEvent e) {
 				GUI gui = new GUI();
-				gui.show();
+				gui.setVisible(true);
 				frame.dispose();
 			}
 		});
@@ -56,4 +56,6 @@ public class Player {
 		pannello.setVisible(true);
 	}
 
+	public void setFrame( JFrame jFrame ) {this.frame = jFrame;}
+	
 }

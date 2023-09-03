@@ -19,13 +19,16 @@ public class Login extends Entry_System{
 			
 			public void actionPerformed(ActionEvent e) {
 				String Username = username.getText();
-				String Password1 = Password.getText();
+				String password = "";
+				for(char c : Password.getPassword() ){
+					password += c;
+				}
 				boolean author = isAuthor.isSelected();
-				
+
 				try {
-					if(datas.getUserEsistente(Username, Password1, author)) {
+					if(datas.getUserEsistente(Username, password, author)) {
 						JOptionPane.showMessageDialog(null, "Login Successful");
-						done();
+						done( password );
 					}else
 						JOptionPane.showOptionDialog(null, "Failed: try other credentials or Singing in.", "Login Issue", 2, 2, null, null, null);
 						
@@ -41,17 +44,19 @@ public class Login extends Entry_System{
 	
 	public void setPanel(JPanel panel) {this.panel = panel;}
 	
-	public void done() throws IOException{
+	public void done(String password) throws IOException{
 		
 		this.dispose();
 		panel.setVisible(false);
+		JFrame frame = (JFrame) Login.getFrames()[0];
+
 		if(isAuthor.isSelected()) {
-			Author a = new Author(panel, username.getText(), (JFrame) this.getFrames()[0]);
-			
+			Author a = new Author(panel, username.getText(), frame);
+			a.setFrame(frame);
 		}else {
 			Player p = new Player( panel, username.getText(),
-					datas.getBirthdate(username.getText(), Password.getText()),
-					(JFrame) this.getFrames()[0] );
+					datas.getBirthdate(username.getText(), password), frame );
+					p.setFrame(frame);
 		}
 	}
 }

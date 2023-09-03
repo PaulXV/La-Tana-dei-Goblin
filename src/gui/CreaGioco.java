@@ -71,7 +71,7 @@ public class CreaGioco extends JFrame {
 		liter = new JLabel("Che tipo di iterazione?");
 		liter.setBounds(100, 8, 200, 20);
 		liter.setForeground(Style.text_color);
-		iterazioni = new JComboBox(Iterazione.values());
+		iterazioni = new JComboBox<Iterazione>(Iterazione.values());
 		panel.add(liter);
 		panel.add(iterazioni);
 		
@@ -113,7 +113,7 @@ public class CreaGioco extends JFrame {
 		lpremi = new JLabel("Che premi ha vinto?");
 		lpremi.setBounds(100, 8, 200, 20);
 		lpremi.setForeground(Style.text_color);
-		premi = new JComboBox(Premio.values());
+		premi = new JComboBox<Premio>(Premio.values());
 		panel.add(lpremi);
 		panel.add(premi);
 		

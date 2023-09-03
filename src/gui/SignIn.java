@@ -25,13 +25,16 @@ public class SignIn extends Entry_System {
 			public void actionPerformed(ActionEvent e) {
 				
 				String Username = username.getText();
-				String Password1 = Password.getText();
+				String password = "";
+				for(char c : Password.getPassword() ){
+					password += c;
+				}
 				boolean author = isAuthor.isSelected();
 				
 				if(!Username.isEmpty()) {
 					try {
-						if(!datas.getUserEsistente(Username, Password1, author)) {
-							datas.newUser(Username, Password1, author, dataNascita.getText().split(": ")[1]);
+						if(!datas.getUserEsistente(Username, password, author)) {
+							datas.newUser(Username, password, author, dataNascita.getText().split(": ")[1]);
 							
 							JOptionPane.showMessageDialog(null, "SUCCESS");
 							SignIn.this.dispose();

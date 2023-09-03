@@ -15,7 +15,6 @@ public class Author{
 	
 	Author(JPanel jPanel, String nome, JFrame jFrame) throws IOException{
 		this.frame = jFrame;
-		
 		//serve per cancellare gli elementi di MenuGui e aggiornare il panel in modo che sia vuoto
 		this.pannello = jPanel;
 		this.nomeUtente = nome;
@@ -34,7 +33,7 @@ public class Author{
 			
 			public void mouseClicked(MouseEvent e) {
 				GUI gui = new GUI();
-				gui.show();
+				gui.setVisible(true);
 				frame.dispose();
 			}
 		});
@@ -74,5 +73,7 @@ public class Author{
 		pannello.add(title, BorderLayout.NORTH);
 		pannello.setVisible(true);
 	}
+
+	public void setFrame( JFrame jFrame ) {this.frame = jFrame;}
 
 }
