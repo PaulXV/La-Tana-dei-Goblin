@@ -48,4 +48,6 @@ public class SignIn extends Entry_System {
 		this.setVisible(true);
 	}
 
+	public void show()	{this.setVisible(true);}
+
 }

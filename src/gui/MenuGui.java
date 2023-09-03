@@ -48,6 +48,7 @@ public class MenuGui extends JPanel implements Style{
 				}
 				else if(btn.getText().equals(" SING IN ")) {
 					SignIn s = new SignIn();
+					s.show();
 				}
 			}
 		});

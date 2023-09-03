@@ -34,6 +34,7 @@ public class Author{
 			
 			public void mouseClicked(MouseEvent e) {
 				GUI gui = new GUI();
+				gui.show();
 				frame.dispose();
 			}
 		});
@@ -60,6 +61,7 @@ public class Author{
 		createButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				CreaGioco newGioco = new CreaGioco(areaGiochi, nomeUtente);
+				newGioco.show();
 				pannello.repaint();
 			}
 		});

@@ -14,7 +14,7 @@ public class GUI extends JFrame{
 		
 		MenuGui m = new MenuGui();
 		this.add(m, BorderLayout.CENTER);
-		
-		this.setVisible(true);
 	}
+
+	public void show()	{this.setVisible(true);}
 }

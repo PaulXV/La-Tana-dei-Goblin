@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import model.*;
 
 public class ListaGiochi extends JPanel implements Style{
 

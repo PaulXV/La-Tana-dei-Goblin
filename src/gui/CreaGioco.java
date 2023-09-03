@@ -20,9 +20,9 @@ public class CreaGioco extends JFrame {
 	private PannelloGioco g;
 	private String nomeUtente;
 	
-	CreaGioco(PannelloGioco g, String nomeUtente){
+	CreaGioco(PannelloGioco g, String userName){
 		this.g = g;
-		this.nomeUtente = nomeUtente;
+		this.nomeUtente = userName;
 		this.setSize(400, 600);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -144,6 +144,8 @@ public class CreaGioco extends JFrame {
 		this.setVisible(true);
 	}
 	
+	public void show() {this.setVisible(true);}
+
 	private void done() throws IOException {
 		giocoCreato.setVisible(true);
 		g.addGame(giocoCreato, 2);

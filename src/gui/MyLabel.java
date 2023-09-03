@@ -30,8 +30,8 @@ public class MyLabel extends JLabel implements Style{
 	private ListaGiochi listaGiochi;
 	private PannelloGioco pann;
 	
-	MyLabel(String title, boolean author, String autore) {
-		this.author = author;
+	MyLabel(String title, boolean isAuthor, String autore) {
+		this.author = isAuthor;
 		this.autore = autore;
 		this.title = title;
 		this.setText(title);
