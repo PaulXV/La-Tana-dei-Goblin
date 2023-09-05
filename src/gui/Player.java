@@ -11,8 +11,8 @@ public class Player {
 	private String nomeUtente;
 	private JFrame frame = new JFrame();
 	
-	public Player(JPanel jPanel, String nome, String birthDate, JFrame jFrame) throws IOException {
-		this.frame = jFrame;
+	public Player(JPanel jPanel, String nome, String birthDate, JFrame frame) throws IOException {
+		this.frame = frame;
 		//serve per cancellare gli elementi di MenuGui e aggiornare il panel in modo che sia vuoto
 		this.pannello = jPanel;
 		this.nomeUtente = nome;

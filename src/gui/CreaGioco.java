@@ -18,11 +18,11 @@ public class CreaGioco extends JFrame {
 	private UsersData u = new UsersData();
 	private MyLabel giocoCreato;
 	private PannelloGioco g;
-	private String nomeUtente;
+	private String utente;
 	
-	CreaGioco(PannelloGioco g, String userName){
+	CreaGioco(PannelloGioco g, String nomeUtente){
 		this.g = g;
-		this.nomeUtente = userName;
+		this.utente = nomeUtente;
 		this.setSize(400, 600);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -125,7 +125,7 @@ public class CreaGioco extends JFrame {
 			
 			public void mouseClicked(MouseEvent e) {
 				
-				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName", true, nomeUtente);
+				giocoCreato = new MyLabel((nome.getText() != null) ? nome.getText() : "NoName", true, utente);
 				giocoCreato.setOther((dataEdizione.getText() != null) ? dataEdizione.getText() : "", (descrizione.getText() != null) ? descrizione.getText() : "",
 						(authors.getSelectedItem() != null) ? ""+authors.getSelectedItem() : "",
 								(giocatori.getText() != null) ? giocatori.getText() : "",
@@ -144,8 +144,6 @@ public class CreaGioco extends JFrame {
 		this.setVisible(true);
 	}
 	
-	public void show() {this.setVisible(true);}
-
 	private void done() throws IOException {
 		giocoCreato.setVisible(true);
 		g.addGame(giocoCreato, 2);
