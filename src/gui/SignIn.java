@@ -12,7 +12,7 @@ public class SignIn extends Entry_System {
 	private UsersData datas = new UsersData();
 	
 	SignIn(){
-		super.setTitle("La Tana dei Goblin - Sing In");
+		super.setTitle("Sing In");
 		super.setSize(400,300);
 		super.dataNascita.setVisible(true);
 		super.chooseDate.setVisible(true);

@@ -13,7 +13,7 @@ public class Login extends Entry_System{
 	
 	Login(){
 		
-		super.setTitle("La Tana dei Goblin - Login");
+		super.setTitle("Login");
 		
 		button.addActionListener(new ActionListener() {
 			
