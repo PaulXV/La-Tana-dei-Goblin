@@ -21,7 +21,6 @@ public class SignIn extends Entry_System {
 		
 		button.addActionListener(new ActionListener() {
 			
-			
 			public void actionPerformed(ActionEvent e) {
 				
 				String Username = username.getText();
@@ -50,7 +49,5 @@ public class SignIn extends Entry_System {
 		
 		this.setVisible(true);
 	}
-
-	public void show()	{this.setVisible(true);}
 
 }

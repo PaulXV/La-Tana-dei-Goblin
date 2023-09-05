@@ -33,6 +33,7 @@ public class MenuGui extends JPanel implements Style{
 		
 		this.add(title);
 		this.add(buttonPanel);
+		this.setVisible(true);
 	}
 	
 	private JPanel returnThisPanel() {return this;}
@@ -48,7 +49,6 @@ public class MenuGui extends JPanel implements Style{
 				}
 				else if(btn.getText().equals(" SING IN ")) {
 					SignIn s = new SignIn();
-					s.show();
 				}
 			}
 		});
