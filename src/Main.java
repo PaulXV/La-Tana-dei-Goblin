@@ -1,10 +1,8 @@
-
+import gui.*;
 
 public class Main {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//marco novello
+		GUI g = new GUI();
+		g.setVisible(true);
 	}
-
 }
